@@ -1,105 +1,256 @@
-<style>
-    :root {
-        /* Цвета стали более насыщенными */
-        --primary: #1e3a8a; 
-        --accent: #d97706;
-        /* Фон: глубокий серо-голубой градиент */
-        --bg: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
-        --card-bg: #ffffff;
-        --text: #0f172a;
-    }
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гид по проживанию | Свои Дни</title>
+    <style>
+        :root {
+            --primary: #1e3a8a; 
+            --accent: #d97706;
+            /* Благородный серо-голубой градиент для фона */
+            --bg-gradient: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            --card-bg: #ffffff;
+            --text: #0f172a;
+        }
 
-    body { 
-        font-family: 'Segoe UI', system-ui, sans-serif; 
-        background: var(--bg); /* Применяем градиент */
-        background-attachment: fixed; /* Фон не движется при скролле - это выглядит круто */
-        margin: 0; 
-        padding: 0; 
-        color: var(--text); 
-        padding-bottom: 40px; 
-    }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            background: var(--bg-gradient);
+            background-attachment: fixed; /* Фон остается на месте при скролле */
+            margin: 0; 
+            padding: 0; 
+            color: var(--text); 
+            padding-bottom: 40px; 
+        }
 
-    .main-container { max-width: 900px; margin: 0 auto; padding: 0 15px; }
+        .main-container { max-width: 900px; margin: 0 auto; padding: 0 15px; }
 
-    /* Шапка */
-    .header-hero {
-        position: relative;
-        background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('hero.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 280px; 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-        margin-bottom: 30px;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    }
-    
-    .logo-hero { 
-        max-width: 110px; 
-        border-radius: 50%; 
-        border: 4px solid rgba(255,255,255,0.8);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        background: white;
-        margin-bottom: 15px;
-    }
+        /* Шапка с фоновым фото и логотипом */
+        .header-hero {
+            position: relative;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 280px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .logo-hero { 
+            max-width: 110px; 
+            border-radius: 50%; 
+            border: 4px solid rgba(255,255,255,0.8);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            background: white;
+            margin-bottom: 15px;
+        }
+        .header-hero p { margin: 0; font-size: 1.1rem; font-weight: 300; letter-spacing: 1px; }
 
-    /* Карточки с эффектом объема */
-    .card { 
-        background: var(--card-bg); 
-        padding: 25px; 
-        border-radius: 24px; /* Более скругленные углы выглядят современнее */
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.05); 
-        display: flex;
-        flex-direction: column;
-        border: 1px solid rgba(255,255,255,0.7); /* Тонкая светлая каемка */
-    }
+        /* Кнопка бронирования */
+        .booking-btn {
+            display: block; 
+            background: var(--primary); 
+            color: white !important; 
+            text-align: center; 
+            padding: 20px; 
+            border-radius: 20px; 
+            text-decoration: none; 
+            font-weight: 800; 
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .booking-btn:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 25px rgba(30, 58, 138, 0.4);
+        }
 
-    .booking-btn {
-        display: block; 
-        background: var(--primary); 
-        color: white !important; 
-        text-align: center; 
-        padding: 20px; 
-        border-radius: 20px; 
-        text-decoration: none; 
-        font-weight: 800; 
-        font-size: 1.2rem;
-        margin-bottom: 35px;
-        transition: all 0.3s ease;
-        box-shadow: 0 10px 20px rgba(30, 58, 138, 0.3);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    .booking-btn:hover { 
-        transform: translateY(-3px); 
-        box-shadow: 0 15px 25px rgba(30, 58, 138, 0.4);
-    }
+        /* Сетка по 2 блока в ряд */
+        .grid-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 25px; 
+            align-items: stretch; 
+        }
 
-    h2 { 
-        font-size: 1.2rem; 
-        margin-top: 0; 
-        color: var(--primary); 
-        border-bottom: 2px solid #f1f5f9; 
-        padding-bottom: 12px; 
-        margin-bottom: 20px;
-    }
+        .card { 
+            background: var(--card-bg); 
+            padding: 25px; 
+            border-radius: 24px; 
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07); 
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.8);
+        }
 
-    /* Улучшенные блоки данных */
-    .data-row { 
-        background: #f8fafc; 
-        border: 1px solid #e2e8f0; 
-        padding: 15px; 
-        border-radius: 16px; 
-        margin-bottom: 12px; 
-    }
+        h2 { 
+            font-size: 1.2rem; 
+            margin-top: 0; 
+            color: var(--primary); 
+            border-bottom: 2px solid #f1f5f9; 
+            padding-bottom: 12px; 
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .img-box { width: 100%; border-radius: 16px; margin: 15px 0; object-fit: cover; height: 180px; background: #eee; }
+        
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; margin-top: 15px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-    /* Адаптивность */
-    @media (max-width: 768px) {
-        .header-hero { height: 220px; }
-        .grid-layout { gap: 15px; }
+        .data-row { 
+            background: #f8fafc; 
+            border: 1px solid #e2e8f0; 
+            padding: 15px; 
+            border-radius: 16px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 12px; 
+        }
+        .btn-copy { 
+            background: #f1f5f9; 
+            color: var(--primary); 
+            border: 1px solid #e2e8f0; 
+            padding: 10px 15px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: 700; 
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        .btn-copy:active { background: var(--primary); color: white; }
+
+        /* Подвал */
+        footer { 
+            margin-top: 60px; 
+            padding: 40px 20px; 
+            text-align: center; 
+            color: #475569; 
+            font-size: 14px; 
+            border-top: 1px solid rgba(0,0,0,0.05); 
+        }
+        .footer-contacts a { color: var(--primary); text-decoration: none; font-weight: bold; margin: 0 10px; }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .grid-layout { grid-template-columns: 1fr; gap: 20px; }
+            .header-hero { height: 220px; }
+            body { padding-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header-hero">
+    <img src="logo.png" alt="Свои Дни" class="logo-hero">
+    <p>Ваш персональный гид по проживанию</p>
+</div>
+
+<div class="main-container">
+
+    <a href="https://homereserve.ru/AeEVhV7jVU" target="_blank" class="booking-btn">📅 Забронировать самостоятельно</a>
+
+    <div class="grid-layout">
+        
+        <div class="card">
+            <h2>🚗 Как добраться</h2>
+            <p>Дом расположен в 5 минутах от центра. Удобный заезд со стороны набережной.</p>
+            <img src="way.jpg" class="img-box" alt="Схема проезда">
+        </div>
+
+        <div class="card">
+            <h2>🚪 Вход в здание</h2>
+            <p>Центральный вход через калитку. Введите код на домофоне.</p>
+            <div class="data-row">
+                <div><small>Код калитки</small><br><b id="gate">#4455</b></div>
+                <button class="btn-copy" onclick="copy('gate')">Копировать</button>
+            </div>
+            <img src="entrance.jpg" class="img-box" alt="Вход">
+        </div>
+
+        <div class="card">
+            <h2>🔑 Открытие двери</h2>
+            <p>Видео-инструкция по работе с электронным замком.</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🛡️ Охрана</h2>
+            <p>Пост охраны работает 24/7. Ваша безопасность — наш приоритет.</p>
+            <img src="security.jpg" class="img-box" alt="Охрана">
+        </div>
+
+        <div class="card">
+            <h2>☕ Рядом с вами</h2>
+            <p>Лучшие локации, кафе и парки в шаговой доступности от дома.</p>
+            <img src="fun.jpg" class="img-box" alt="Кафе">
+        </div>
+
+        <div class="card">
+            <h2>✨ Доп. удобства</h2>
+            <p>Всё для комфорта: гигиенические наборы, чай и кофе уже в квартире.</p>
+            <img src="amenities.jpg" class="img-box" alt="Услуги">
+        </div>
+
+        <div class="card">
+            <h2>📝 Правила проживания</h2>
+            <ul style="padding-left: 20px; font-size: 14px; margin: 0; line-height: 1.6;">
+                <li>Заезд с 14:00, выезд до 12:00.</li>
+                <li>Курение в квартире строго запрещено.</li>
+                <li>Соблюдайте тишину с 22:00 до 08:00.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>📞 Поддержка</h2>
+            <p>Мы на связи 24/7 по любым вопросам заселения.</p>
+            <div class="data-row">
+                <div><small>WhatsApp / Тел.</small><br><b>+7 (999) 000-00-00</b></div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-contacts">
+            <a href="tel:+79990000000">📞 Позвонить</a> | 
+            <a href="mailto:hello@svoidni.ru">✉️ Написать</a>
+        </div>
+        <p style="margin-top: 20px; opacity: 0.8;">© 2026 Свои Дни. Работаем для вашего комфорта.</p>
+    </footer>
+</div>
+
+<script>
+    function copy(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text);
+        const btn = event.target;
+        const originalText = btn.innerText;
+        btn.innerText = '✅';
+        btn.style.background = '#1e3a8a';
+        btn.style.color = 'white';
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = '#f1f5f9';
+            btn.style.color = '#1e3a8a';
+        }, 1000);
     }
-</style>
+</script>
+
+</body>
+</html>
