@@ -153,16 +153,17 @@
         </div>
     </div>
 
-    <div class="item full" style="margin-bottom: 25px;">
+  <div class="item full" style="margin-bottom: 25px;">
         <h2>🗓 Прямое бронирование</h2>
-        <p>Забронируйте следующие даты проживания без комиссий площадок.</p>
+        <p style="margin-bottom: 20px;">Забронируйте следующие даты проживания без комиссий площадок.</p>
         
-        <div class="media-placeholder" style="height: auto; padding: 20px; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.2); border-radius: 20px;">
-            <div id="hr-widget" style="width: 100%; max-width: 800px; margin: 0 auto;"></div>
-            <script type="module" src="https://homereserve.ru/widget.js"></script>
-            <script type="module">
-                window.homereserve.initWidgetList({"token":"AeEVhV7jVU"})
-            </script>
+        <div style="display: flex; justify-content: center; align-items: center; width: 100%; background: rgba(0,0,0,0.2); border-radius: 20px; padding: 20px 0; overflow: hidden;">
+            <div id="hr-widget" style="width: 95%; max-width: 900px; margin: 0 auto;">
+                <script type="module" src="https://homereserve.ru/widget.js"></script>
+                <script type="module">
+                    window.homereserve.initWidgetList({"token":"AeEVhV7jVU"})
+                </script>
+            </div>
         </div>
         
         <a href="https://homereserve.ru/AeEVhV7jVU" class="maps-btn" style="width: 100%; box-sizing: border-box; background: var(--primary-blue); margin-top: 20px;">Забронировать сейчас</a>
