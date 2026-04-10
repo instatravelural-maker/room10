@@ -55,7 +55,7 @@
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 1fr; /* Делает блоки в одном ряду равными */
+            grid-auto-rows: minmax(100px, auto);
             gap: 20px;
         }
         .item {
@@ -68,13 +68,24 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: 0.3s ease;
             display: flex;
-            flex-direction: column; /* Позволяет содержимому растягивать блок */
+            flex-direction: column;
         }
         .wide { grid-column: span 2; }
         .full { grid-column: span 3; }
 
         h2 { font-size: 0.9rem; color: #60a5fa; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 20px 0; font-weight: 800; }
         p { color: var(--text-dim); line-height: 1.6; margin: 0; font-size: 1rem; }
+
+        /* Стиль для красивого текстового блока как в "Охране" */
+        .description-block {
+            margin-top: 15px; 
+            padding: 20px; 
+            background: rgba(255,255,255,0.03); 
+            border-radius: 22px; 
+            border: 1px solid rgba(255,255,255,0.05);
+            flex-grow: 1;
+        }
+        .description-block p { font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
 
         .media { width: 100%; border-radius: 20px; object-fit: cover; border: 1px solid var(--glass-border); margin-top: 15px; }
         .media-placeholder { width: 100%; height: 200px; border-radius: 20px; background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.1); margin-top: 15px; display: flex; align-items: center; justify-content: center; color: #475569; }
@@ -84,7 +95,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-top: auto; /* Прижимает кнопку к низу блока */
+            margin-top: 20px;
             padding: 15px 25px;
             background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -96,7 +107,8 @@
             transition: all 0.3s ease;
         }
         
-        .route-step { display: flex; align-items: flex-start; gap: 12px; margin-top: 15px; }
+        .route-step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+        .route-step:last-child { margin-bottom: 0; }
         .route-step span { background: var(--primary-blue); color: white; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
 
         .info-pill {
@@ -109,7 +121,7 @@
             margin-top: 15px;
             border: 1px solid rgba(255,255,255,0.05);
         }
-        .code-val { font-size: 1.6rem; font-family: 'Monaco', monospace; color: white; font-weight: 600; }
+        .code-val { font-size: 1.6rem; font-family: 'Inter', sans-serif; color: white; font-weight: 600; }
         
         .btn-copy { 
             background: white; color: black; border: none; 
@@ -128,7 +140,7 @@
         .footer-contacts a { color: #f8fafc; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
 
         @media (max-width: 850px) {
-            .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+            .bento-grid { grid-template-columns: 1fr; }
             .wide, .full { grid-column: span 1; }
         }
     </style>
@@ -161,31 +173,34 @@
         
         <div class="item wide">
             <h2>🚗 Как добраться</h2>
-            <img src="way.jpg" class="media" style="height: 350px; margin-bottom: 20px;" alt="Вид здания">
-            <p>Наш адрес: <b>Арцеуловская аллея, д. 19, корп. 1</b></p>
-            <div class="route-step">
-                <span>1</span>
-                <p>Личным транспортом: Арцеуловская аллея, д. 19, 14 подъезд (дом-свечка первый от школы)<br>Бесплатная парковка возле дома</p>
+            <img src="way.jpg" class="media" style="height: 280px; margin-bottom: 10px;" alt="Карта">
+            
+            <div class="description-block">
+                <p style="margin-bottom: 15px;">Наш адрес: <b>Арцеуловская аллея, д. 19, корп. 1</b> (введите в навигаторе).</p>
+                <div class="route-step">
+                    <span>1</span>
+                    <p>Личным транспортом: Арцеуловская аллея, д. 19, 14 подъезд (дом-свечка первый от школы) Бесплатная парковка возле дома</p>
+                </div>
+                <div class="route-step">
+                    <span>2</span>
+                    <p>Если Вы едете к нам общественным транспортом от станции метро "Комендантский пр-кт", Вам нужен 127 автобус или 23 троллейбус От метро "Пионерская" на 127 автобусе Ехать до конечной остановки "Арцеуловская аллея" Далее 7 минут пешком и Вы на месте.</p>
+                </div>
             </div>
-            <div class="route-step">
-                <span>2</span>
-                <p>Если Вы едете к нам общественным транспортом от станции метро "Комендантский пр-кт", Вам нужен 127 автобус или 23 троллейбус<br>От метро "Пионерская" на 127 автобусе<br>Ехать до конечной остановки "Арцеуловская аллея"<br>Далее 7 минут пешком и Вы на месте.</p>
-            </div>
-            <a href="https://yandex.ru/maps/?ll=30.211941%2C60.039164&pt=30.211941%2C60.039164%2Cpm2rdm&z=17" target="_blank" class="maps-btn" style="margin-top: 25px;">Открыть в Картах 📍</a>
+            <a href="https://yandex.ru/maps/?ll=30.211941%2C60.039164&pt=30.211941%2C60.039164%2Cpm2rdm&z=17" target="_blank" class="maps-btn">Открыть в Картах 📍</a>
         </div>
 
         <div class="item">
             <h2>🔐 Доступ</h2>
-            <img src="intercom.jpg" class="media" style="height: 350px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Домофон">
+            <img src="intercom.jpg" class="media" style="height: 280px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Домофон">
             
             <div class="info-pill">
                 <div><small style="color:#94a3b8;">ДОМОФОН</small><div class="code-val" id="c1">2631</div></div>
                 <button class="btn-copy" onclick="copy('c1')">ВЫЗОВ</button>
             </div>
 
-            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 18px; border: 1px solid rgba(255,255,255,0.05); flex-grow: 1;">
-                <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-                    Вход в подъезд со стороны школы.<br>Наберите на домофоне комбинацию цифр, дождитесь открытия двери.<br>После входа в подъезд поверните в левую дверь, пройдите по ступенькам и в правую дверь до конца.
+            <div class="description-block">
+                <p>
+                    Вход в подъезд со стороны школы. Наберите на домофоне комбинацию цифр, дождитесь открытия двери. После входа в подъезд поверните в левую дверь, пройдите по ступенькам и в правую дверь до конца.
                 </p>
             </div>
         </div>
@@ -195,23 +210,24 @@
             <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 22px; overflow: hidden; border: 1px solid var(--glass-border); margin-top: 15px;">
                 <iframe src="https://kinescope.io/rvrHaiMd39fBvqmdknZfVL" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allowfullscreen></iframe>
             </div>
-            <p style="margin-top: 15px;">В квартире установлен электронный замок. 
-
-Чтобы его открыть, проведите рукой по верхней панели замка. После включения панели введите код, который был выслан вам в мессенджер или СМС сообщением, и нажмите #. После звукового сигнала «Дверь открыта» можно входить в квартиру. 
-
-Закрыть дверь при входе и выходе можно просто захлопнув дверь или захлопнуть и поднять ручку двери кверху. 
-Открыть дверь со стороны квартиры: просто опустите ручку вниз.</p>
+            
+            <div class="description-block">
+                <p>
+                    В квартире установлен электронный замок. Чтобы его открыть, <b>проведите рукой по верхней панели замка</b>. После включения панели введите код, который был выслан вам в мессенджер или СМС сообщением, и <b>нажмите #</b>. После звукового сигнала «Дверь открыта» можно входить в квартиру. 
+                </p>
+                <p style="margin-top: 10px;">
+                    Закрыть дверь при входе и выходе можно просто захлопнув дверь или захлопнуть и <b>поднять ручку двери кверху</b>. Открыть дверь со стороны квартиры: просто опустите ручку вниз.
+                </p>
+            </div>
         </div>
 
         <div class="item">
             <h2>🛡 Охрана</h2>
-            <img src="security.jpg" class="media" style="height: 350px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Пост охраны">
+            <img src="security.jpg" class="media" style="height: 280px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Пост охраны">
             
-            <div style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 18px; border: 1px solid rgba(255,255,255,0.05); flex-grow: 1;">
-                <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-                   Жилой комплекс находится под охраной. 
-                    Охрана обеспечивает порядок на территории дома и следит за соблюдением жильцами и гостями дома закона о тишине. 
-                    В случае экстренных ситуаций, звоните нам по телефону +79214070305.
+            <div class="description-block">
+                <p>
+                   Жилой комплекс находится под охраной. Охрана обеспечивает порядок на территории дома и следит за соблюдением жильцами и гостями дома закона о тишине. В случае экстренных ситуаций, звоните нам по телефону <b>+79214070305</b>.
                 </p>
             </div>
         </div>
@@ -219,18 +235,22 @@
         <div class="item">
             <h2>✨ Развлечения</h2>
             <div class="media-placeholder">Фото досуга</div>
-            <p style="margin-top: 15px;">Рядом находится Орловский парк. Рекомендуем посетить ресторан «Svoi».</p>
+            <div class="description-block">
+                <p>Рядом находится Орловский парк. Рекомендуем посетить ресторан «Svoi».</p>
+            </div>
         </div>
 
         <div class="item">
             <h2>🚀 Возможности</h2>
             <div class="media-placeholder">Фото доп. услуг</div>
-            <p style="margin-top: 15px;">Заказ завтраков и клининг по запросу.</p>
+            <div class="description-block">
+                <p>Заказ завтраков и клининг по запросу.</p>
+            </div>
         </div>
 
         <div class="item wide">
             <h2>📝 Правила проживания</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+            <div class="description-block" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <p>• Заезд: с 14:00<br>• Выезд: до 12:00</p>
                 <p>• Курение запрещено<br>• Режим тишины: 22-08</p>
             </div>
@@ -240,7 +260,7 @@
 
     <footer>
         <div class="footer-contacts">
-            <a href="tel:+79214070305">📞 +7 (921) 407-03-05</a>
+            <a href="tel:+79990000000">📞 +7 (999) 000-00-00</a>
             <a href="mailto:welcome@svoidni.ru">✉️ welcome@svoidni.ru</a>
             <p>📍 Арцеуловская аллея, 19/1</p>
         </div>
@@ -253,9 +273,8 @@
         const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text);
         const btn = event.target;
-        const originalText = btn.innerText;
         btn.innerText = 'DONE';
-        setTimeout(() => { btn.innerText = originalText; }, 1200);
+        setTimeout(() => { btn.innerText = 'ВЫЗОВ'; }, 1200);
     }
 </script>
 
