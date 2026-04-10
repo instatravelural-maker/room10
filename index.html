@@ -55,7 +55,8 @@
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: minmax(180px, auto);
+            /* Изменено: заставляем строки растягиваться на равные доли */
+            grid-auto-rows: 1fr; 
             gap: 20px;
         }
         .item {
@@ -67,6 +68,9 @@
             border: 1px solid var(--glass-border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: 0.3s ease;
+            /* Добавлено: чтобы блоки внутри тянулись по высоте ячейки */
+            display: flex;
+            flex-direction: column;
         }
         .wide { grid-column: span 2; }
         .full { grid-column: span 3; }
@@ -126,7 +130,7 @@
         .footer-contacts a { color: #f8fafc; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
 
         @media (max-width: 850px) {
-            .bento-grid { grid-template-columns: 1fr; }
+            .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
             .wide, .tall, .full { grid-column: span 1; grid-row: span 1; }
         }
     </style>
@@ -159,15 +163,11 @@
             <p>Наш адрес: <b>Арцеуловская аллея, д. 19, корп. 1</b></p>
             <div class="route-step">
                 <span>1</span>
-                <p>Личным транспортом: Арцеуловская аллея, д. 19, 14 подъезд (дом-свечка первый от школы)
-Бесплатная парковка возле дома</p>
+                <p>Личным транспортом: Арцеуловская аллея, д. 19, 14 подъезд (дом-свечка первый от школы)<br>Бесплатная парковка возле дома</p>
             </div>
             <div class="route-step">
                 <span>2</span>
-                <p>Если Вы едете к нам общественным транспортом от станции метро "Комендантский пр-кт", Вам нужен 127 автобус или 23 троллейбус
-От метро "Пионерская" на 127 автобусе
-Ехать до конечной остановки "Арцеуловская аллея"
-Далее 7 минут пешком и Вы на месте.</p>
+                <p>Если Вы едете к нам общественным транспортом от станции метро "Комендантский пр-кт", Вам нужен 127 автобус или 23 троллейбус<br>От метро "Пионерская" на 127 автобусе<br>Ехать до конечной остановки "Арцеуловская аллея"<br>Далее 7 минут пешком и Вы на месте.</p>
             </div>
             <a href="https://yandex.ru/maps/?ll=30.211941%2C60.039164&pt=30.211941%2C60.039164%2Cpm2rdm&z=17" target="_blank" class="maps-btn">Открыть в Картах 📍</a>
         </div>
@@ -181,11 +181,9 @@
                 <button class="btn-copy" onclick="copy('c1')">ВЫЗОВ</button>
             </div>
 
-            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 18px; border: 1px solid rgba(255,255,255,0.05);">
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 18px; border: 1px solid rgba(255,255,255,0.05); flex-grow: 1;">
                 <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-                    Вход в подъезд со стороны школы.
-Наберите на домофоне комбинацию цифр, дождитесь открытия двери.
-После входа в подъезд поверните в левую дверь, пройдите по ступенькам и в правую дверь до конца.
+                    Вход в подъезд со стороны школы.<br>Наберите на домофоне комбинацию цифр, дождитесь открытия двери.<br>После входа в подъезд поверните в левую дверь, пройдите по ступенькам и в правую дверь до конца.
                 </p>
             </div>
         </div>
@@ -242,7 +240,7 @@
         navigator.clipboard.writeText(text);
         const btn = event.target;
         btn.innerText = 'DONE';
-        setTimeout(() => { btn.innerText = 'COPY'; }, 1200);
+        setTimeout(() => { btn.innerText = 'ВЫЗОВ'; }, 1200);
     }
 </script>
 
