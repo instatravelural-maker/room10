@@ -3,246 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гид по проживанию | Свои Дни</title>
+    <title>Svoi Dni | Premium Concierge</title>
     <style>
         :root {
-            /* Современная палитра */
-            --primary: #1e3a8a; /* Глубокий синий */
-            --accent: #d97706; /* Акцентный золотой */
-            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f1f5f9 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            /* Сложная, мягкая тень */
-            --shadow-modern: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+            --bg: #030712;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --accent-blue: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --border: rgba(255, 255, 255, 0.1);
         }
 
-        body { 
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
-            background: var(--bg-gradient); 
-            background-attachment: fixed;
-            margin: 0; 
-            padding: 0; 
-            color: var(--text-main); 
-            padding-bottom: 40px;
-            -webkit-font-smoothing: antialiased; /* Улучшенное сглаживание шрифтов */
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(30, 58, 138, 0.2) 0%, transparent 50%);
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .main-container { max-width: 900px; margin: 0 auto; padding: 0 15px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-        /* Обновленная шапка */
-        .header-hero {
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            border-radius: 32px;
+            margin-bottom: 30px;
             position: relative;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('hero.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 280px; 
+            overflow: hidden;
+            background: url('hero.jpg') center/cover;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
+            justify-content: flex-end;
+            padding: 40px;
+            border: 1px solid var(--border);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(3,7,18,0.9) 0%, transparent 70%);
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+        .logo-img { width: 80px; height: 80px; border-radius: 20px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.2); }
+        .hero h1 { font-size: 2.5rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
+
+        /* Бронирование - Главная кнопка */
+        .booking-card {
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+            padding: 24px;
+            border-radius: 24px;
             text-align: center;
             margin-bottom: 30px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.15);
-        }
-        
-        .logo-hero { 
-            max-width: 110px; 
-            border-radius: 50%; 
-            border: 4px solid rgba(255,255,255,0.8);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            background: white;
-            margin-bottom: 15px;
-        }
-        .header-hero p { margin: 0; font-size: 1.1rem; font-weight: 300; letter-spacing: 1px; }
-
-        /* Кнопка с градиентом и тенью */
-        .booking-btn {
-            display: block; 
-            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-            color: white !important; 
-            text-align: center; 
-            padding: 20px; 
-            border-radius: 20px; 
-            text-decoration: none; 
-            font-weight: 800; 
-            font-size: 1.2rem;
-            margin-bottom: 35px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .booking-btn:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 15px 25px rgba(30, 58, 138, 0.4);
-        }
-
-        /* Сетка */
-        .grid-layout { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 25px; 
-            align-items: stretch; 
-        }
-
-        /* Современная карточка: тень, скругление, легкая обводка */
-        .card { 
-            background: var(--card-bg); 
-            padding: 25px; 
-            border-radius: 24px; 
-            box-shadow: var(--shadow-modern); 
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(255,255,255,0.7); /* Эффект стекла */
-            backdrop-filter: blur(10px); /* Легкое размытие фона */
-        }
-
-        h2 { 
-            font-size: 1.2rem; 
-            margin-top: 0; 
-            color: var(--primary); 
-            border-bottom: 2px solid #f1f5f9; 
-            padding-bottom: 12px; 
-            margin-bottom: 20px;
+            text-decoration: none;
+            color: white;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            box-shadow: 0 0 30px var(--accent-glow);
         }
-        
-        .img-box { width: 100%; border-radius: 16px; margin: 15px 0; object-fit: cover; height: 180px; background: #eee; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-        
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; margin-top: 15px; box-shadow: var(--shadow-modern); }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .booking-card:hover { transform: scale(1.02); filter: brightness(1.1); }
 
-        /* Улучшенные блоки данных */
-        .data-row { 
-            background: #f8fafc; 
-            border: 1px solid #e2e8f0; 
-            padding: 15px; 
-            border-radius: 16px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 12px; 
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(200px, auto);
+            gap: 20px;
         }
-        .data-row small { color: var(--text-muted); text-transform: uppercase; font-size: 11px; font-weight: 700; }
-        .data-row b { font-size: 18px; color: var(--text-main); }
 
-        .btn-copy { 
-            background: #f1f5f9; 
-            color: var(--primary); 
-            border: 1px solid #e2e8f0; 
-            padding: 10px 15px; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            font-weight: 700; 
-            font-size: 12px;
-            transition: all 0.2s;
+        .item {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            transition: 0.4s cubic-bezier(0.2, 0, 0, 1);
         }
-        .btn-copy:active { background: var(--primary); color: white; transform: scale(0.95); }
 
-        /* Подвал */
-        footer { 
-            margin-top: 60px; 
-            padding: 40px 20px; 
-            text-align: center; 
-            color: var(--text-muted); 
-            font-size: 14px; 
-            border-top: 1px solid rgba(0,0,0,0.05); 
+        .item:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-5px); }
+
+        /* Разные размеры для Bento эффекта */
+        .tall { grid-row: span 2; }
+        .wide { grid-column: span 2; }
+
+        h2 { font-size: 1.1rem; margin: 0 0 15px 0; color: var(--accent-blue); display: flex; align-items: center; gap: 8px; }
+        p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; }
+
+        .media { width: 100%; border-radius: 18px; object-fit: cover; border: 1px solid var(--border); }
+        .video-wrapper { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 16/9; }
+
+        /* Коды доступа */
+        .code-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
         }
-        .footer-contacts a { color: var(--primary); text-decoration: none; font-weight: bold; margin: 0 10px; }
+        .code-val { font-family: monospace; font-size: 1.2rem; color: white; letter-spacing: 2px; }
+        .copy-btn { 
+            background: white; color: black; border: none; padding: 6px 12px; 
+            border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.8rem;
+        }
 
-        /* Мобильная версия */
+        footer { text-align: center; margin-top: 60px; padding: 40px; border-top: 1px solid var(--border); }
+        .footer-links a { color: var(--text-primary); text-decoration: none; margin: 0 15px; font-weight: 500; }
+
         @media (max-width: 768px) {
-            .grid-layout { grid-template-columns: 1fr; gap: 20px; }
-            .header-hero { height: 220px; }
-            .logo-hero { max-width: 90px; }
-            body { padding-bottom: 20px; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .wide { grid-column: span 1; }
+            .hero { height: 300px; padding: 20px; }
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="header-hero">
-    <img src="logo.png" alt="Свои Дни" class="logo-hero">
-    <p>Ваш персональный гид по проживанию</p>
-</div>
-
-<div class="main-container">
-
-    <a href="https://homereserve.ru/AeEVhV7jVU" target="_blank" class="booking-btn">📅 Забронировать самостоятельно</a>
-
-    <div class="grid-layout">
-        
-        <div class="card">
-            <h2>🚗 Как добраться</h2>
-            <p>Дом расположен в 5 минутах от центра. Удобный заезд со стороны набережной.</p>
-            <img src="way.jpg" class="img-box" alt="Схема проезда">
+<div class="container">
+    <div class="hero">
+        <div class="hero-content">
+            <img src="logo.png" class="logo-img" alt="Logo">
+            <h1>Свои Дни</h1>
+            <p>Премиальный стандарт вашего проживания</p>
         </div>
+    </div>
 
-        <div class="card">
-            <h2>🚪 Вход в здание</h2>
-            <p>Центральный вход через калитку. Введите код на домофоне.</p>
-            <div class="data-row">
-                <div><small>Код калитки</small><br><b id="gate">#4455</b></div>
-                <button class="btn-copy" onclick="copy('gate')">Копировать</button>
-            </div>
-            <img src="entrance.jpg" class="img-box" alt="Вход">
-        </div>
+    <a href="https://homereserve.ru/AeEVhV7jVU" class="booking-card">
+        <span>✦</span> Прямое бронирование со скидкой
+    </a>
 
-        <div class="card">
-            <h2>🔑 Открытие двери</h2>
-            <p>Инструкция, как пользоваться электронным замком.</p>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    <div class="bento-grid">
+        <div class="item wide">
+            <h2>🔐 Коды доступа</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="code-box">
+                    <div><small>ДОМОФОН</small><div class="code-val" id="c1">#4455</div></div>
+                    <button class="copy-btn" onclick="copy('c1')">COPY</button>
+                </div>
+                <div class="code-box">
+                    <div><small>КЕЙБОКС</small><div class="code-val" id="c2">1234</div></div>
+                    <button class="copy-btn" onclick="copy('c2')">COPY</button>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <h2>🛡️ Охрана</h2>
-            <p>Пост охраны работает 24/7. Территория под наблюдением.</p>
-            <img src="security.jpg" class="img-box" alt="Охрана">
+        <div class="item tall">
+            <h2>🚗 Локация</h2>
+            <p>Центр города. 5 минут от набережной. Удобный паркинг во дворе.</p>
+            <img src="way.jpg" class="media" style="height: 250px;">
         </div>
 
-        <div class="card">
-            <h2>☕ Рядом с вами</h2>
-            <p>Кофейни, парки и магазины в шаговой доступности.</p>
-            <img src="fun.jpg" class="img-box" alt="Кафе">
-        </div>
-
-        <div class="card">
-            <h2>✨ Удобства</h2>
-            <p>Всё необходимое для комфортного проживания уже внутри.</p>
-            <img src="amenities.jpg" class="img-box" alt="Услуги">
-        </div>
-
-        <div class="card">
-            <h2>📝 Основные правила проживания</h2>
-            <ul style="padding-left: 20px; font-size: 14px; margin: 0; line-height: 1.6;">
-                <li>Заезд с 14:00, выезд до 12:00.</li>
-                <li>Курение запрещено.</li>
-                <li>Тихие часы с 22:00.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h2>📞 Поддержка</h2>
-            <p>Свяжитесь с нами в любое время.</p>
-            <div class="data-row">
-                <div><small>WhatsApp / Телефон</small><br><b>+7 (999) 000-00-00</b></div>
+        <div class="item wide">
+            <h2>🔑 Мастер-класс: Замок</h2>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
 
+        <div class="item">
+            <h2>🛡️ Безопасность</h2>
+            <p>24/7 консьерж и видеонаблюдение. Ваша приватность под защитой.</p>
+        </div>
+
+        <div class="item">
+            <h2>☕ Культура</h2>
+            <p>Лучший кофе в радиусе 100 метров. Авторские завтраки.</p>
+        </div>
+
+        <div class="item wide">
+            <h2>📝 Правила дома</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; text-align: center;">
+                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 20px;">🚭<br><small>НЕ КУРИТЬ</small></div>
+                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 20px;">🤫<br><small>ТИХО С 22:00</small></div>
+                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 20px;">🥂<br><small>БЕЗ ВЕЧЕРИНОК</small></div>
+            </div>
+        </div>
+
+        <div class="item">
+            <h2>📞 Concierge</h2>
+            <p>Мы на связи в WhatsApp мгновенно.</p>
+            <a href="tel:+79990000000" style="color: white; font-weight: bold; text-decoration: none;">Связаться →</a>
+        </div>
     </div>
 
     <footer>
-        <div class="footer-contacts">
-            <a href="tel:+79990000000">📞 Позвонить</a> | 
-            <a href="mailto:hello@svoidni.ru">✉️ Написать</a>
+        <div class="footer-links">
+            <a href="#">WhatsApp</a>
+            <a href="#">Telegram</a>
+            <a href="#">Email</a>
         </div>
-        <p style="margin-top: 20px;">© 2026 Свои Дни. Работаем для вашего комфорта.</p>
+        <p style="margin-top: 25px;">© 2026 SVOI DNI. EXCELLENCE IN HOSPITALITY.</p>
     </footer>
 </div>
 
@@ -251,9 +216,16 @@
         const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text);
         const btn = event.target;
-        btn.innerText = '✅';
-        btn.style.background = '#1e3a8a';
+        btn.innerText = 'DONE';
+        btn.style.background = '#3b82f6';
         btn.style.color = 'white';
         setTimeout(() => {
-            btn.innerText = 'Копировать';
-            btn.style.background = '#f1f5f9';
+            btn.innerText = 'COPY';
+            btn.style.background = 'white';
+            btn.style.color = 'black';
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>
