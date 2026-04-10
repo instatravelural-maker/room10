@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Svoi Dni | Premium Living</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -23,11 +23,12 @@
             background-image: 
                 radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.2) 0%, transparent 40%),
                 radial-gradient(circle at 90% 90%, rgba(30, 58, 138, 0.3) 0%, transparent 40%);
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text-main);
             margin: 0;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
@@ -68,7 +69,7 @@
             padding: 30px;
             border: 1px solid var(--glass-border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: 0.3s ease;
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
         }
@@ -110,6 +111,7 @@
             font-size: 0.95rem;
             transition: all 0.3s ease;
         }
+        .maps-btn:hover { background: var(--primary-blue); transform: translateY(-2px); }
         
         .route-step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
         .route-step span { background: var(--primary-blue); color: white; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
@@ -131,8 +133,8 @@
             padding: 10px 18px; border-radius: 14px; cursor: pointer; font-weight: 700;
             transition: 0.2s;
         }
+        .btn-copy:active { transform: scale(0.95); }
 
-        /* ОБНОВЛЕННЫЕ СТИЛИ ПОДВАЛА */
         footer { 
             padding: 60px 20px; 
             text-align: center; 
@@ -153,24 +155,14 @@
             font-size: 1.1rem;
             transition: color 0.3s ease;
         }
-        .footer-contacts a:hover {
-            color: var(--primary-blue);
-        }
-        .footer-contacts p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-            margin: 0;
-        }
-        .footer-copyright {
-            font-size: 0.75rem;
-            color: #475569;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        .footer-contacts a:hover { color: var(--primary-blue); }
+        .footer-contacts p { color: var(--text-dim); font-size: 0.95rem; margin: 0; }
+        .footer-copyright { font-size: 0.75rem; color: #475569; letter-spacing: 2px; text-transform: uppercase; }
 
         @media (max-width: 850px) {
             .bento-grid { grid-template-columns: 1fr; }
             .wide, .full { grid-column: span 1; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -216,7 +208,7 @@
                     <p>Если Вы едете к нам общественным транспортом от станции метро "Комендантский пр-кт", Вам нужен 127 автобус или 23 троллейбус. От метро "Пионерская" на 127 автобусе. Ехать до конечной остановки "Арцеуловская аллея". Далее 7 минут пешком и Вы на месте.</p>
                 </div>
             </div>
-            <a href="https://yandex.ru/maps/?ll=30.211941%2C60.039164&pt=30.211941%2C60.039164%2Cpm2rdm&z=17" target="_blank" class="maps-btn">Открыть в Картах 📍</a>
+            <a href="https://yandex.ru/maps/?ll=30.211941%2C60.039164&pt=30.211941%2C60.039164%2Cpm2rdm&z=17" target="_blank" rel="noopener" class="maps-btn">Открыть в Картах 📍</a>
         </div>
 
         <div class="item">
@@ -321,6 +313,7 @@
 </div>
 
 <script>
+    // Функция копирования
     function copy(id, event) {
         const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text);
@@ -333,6 +326,13 @@
             setTimeout(() => { btn.innerText = oldText; }, 1200);
         }
     }
+
+    // Удаление решетки /#/ из URL
+    window.addEventListener("load", function() {
+        if (window.location.hash === "#/" || window.location.hash === "#") {
+            history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        }
+    });
 </script>
 
 </body>
