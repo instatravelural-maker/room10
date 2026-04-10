@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Svoi Dni | Premium Living</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    
     <style>
         :root {
             --bg-dark: #020617;
@@ -196,7 +199,7 @@
             <img src="intercom.jpg" class="media" alt="Домофон">
             <div class="info-pill">
                 <div><small style="color:#94a3b8;">ДОМОФОН</small><div class="code-val" id="c1">2631</div></div>
-                <button class="btn-copy" onclick="copy('c1')">ВЫЗОВ</button>
+                <button class="btn-copy" onclick="copy('c1', event)">ВЫЗОВ</button>
             </div>
             <div class="description-block">
                 <p>Вход в подъезд со стороны школы. Наберите на домофоне комбинацию, дождитесь открытия. Поверните в левую дверь, по ступенькам и в правую дверь до конца.</p>
@@ -277,7 +280,7 @@
                     <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 4px;">Сеть: <b>Арцеулка 5G</b></p>
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <span id="wifi-pass" style="font-family: monospace; color: #fff; font-size: 0.9rem;">1Q194Aws</span>
-                        <button onclick="copy('wifi-pass')" style="background: #fff; border: none; padding: 4px 8px; border-radius: 8px; font-size: 0.7rem; font-weight: 800; cursor: pointer;">COPY</button>
+                        <button onclick="copy('wifi-pass', event)" style="background: #fff; border: none; padding: 4px 8px; border-radius: 8px; font-size: 0.7rem; font-weight: 800; cursor: pointer;">COPY</button>
                     </div>
                 </div>
 
@@ -295,12 +298,18 @@
 </div>
 
 <script>
-    function copy(id) {
+    function copy(id, event) {
         const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text);
-        const btn = event.target;
-        btn.innerText = 'DONE';
-        setTimeout(() => { btn.innerText = 'ВЫЗОВ'; }, 1200);
+        
+        // Предотвращаем добавление # в URL и перезагрузку
+        if (event) {
+            event.preventDefault();
+            const btn = event.target;
+            const oldText = btn.innerText;
+            btn.innerText = 'DONE';
+            setTimeout(() => { btn.innerText = oldText; }, 1200);
+        }
     }
 </script>
 
