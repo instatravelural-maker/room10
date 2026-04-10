@@ -9,8 +9,8 @@
             --bg-dark: #020617;
             --primary-blue: #3b82f6;
             --accent-glow: rgba(59, 130, 246, 0.4);
-            --glass-bg: rgba(30, 41, 59, 0.7); 
-            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-bg: rgba(30, 41, 59, 0.75); 
+            --glass-border: rgba(255, 255, 255, 0.15);
             --text-main: #f8fafc;
             --text-dim: #cbd5e1;
         }
@@ -99,11 +99,24 @@
         h2 { font-size: 0.9rem; color: #60a5fa; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 20px 0; font-weight: 800; }
         p { color: var(--text-dim); line-height: 1.6; margin: 0; font-size: 1rem; }
 
-        .media { width: 100%; border-radius: 20px; object-fit: cover; border: 1px solid var(--glass-border); margin-top: 15px; }
+        .media { width: 100%; border-radius: 20px; object-fit: cover; border: 1px solid var(--glass-border); margin-top: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         
-        /* Стили для описания пути */
         .route-step { display: flex; align-items: flex-start; gap: 12px; margin-top: 15px; }
         .route-step span { background: var(--primary-blue); color: white; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
+
+        .maps-btn {
+            display: inline-block; 
+            margin-top: 25px; 
+            padding: 15px 25px; 
+            background: #fff; 
+            border-radius: 18px; 
+            color: #000; 
+            text-decoration: none; 
+            font-weight: 800; 
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .maps-btn:hover { background: var(--primary-blue); color: #fff; transform: translateY(-3px); }
 
         .info-pill {
             background: rgba(0,0,0,0.4);
@@ -155,22 +168,21 @@
             <h2>🚗 Как добраться</h2>
             <img src="way.jpg" class="media" style="height: 350px; margin-bottom: 20px;" alt="Вид здания">
             
-            <p>Наш адрес: <b>Арцеуловская аллея, д. 19, корп. 1</b> (введите в навигаторе).</p>
+            <p>Наш адрес: <b>Арцеуловская аллея, д. 19, корп. 1</b></p>
             
             <div class="route-step">
                 <span>1</span>
-                <p>Личным транспортом: Арцеуловская аллея, д. 19, 14 подъезд (дом-свечка первый от школы)
-Бесплатная парковка возле дома</p>
+                <p><b>Личным транспортом:</b> 14 подъезд (дом-свечка первый от школы). Бесплатная парковка возле дома.</p>
             </div>
             <div class="route-step">
                 <span>2</span>
-                <p>Если Вы едете к нам общественным транспортом от станции метро "Комендантский пр-кт", Вам нужен 127 автобус или 23 троллейбус
-От метро "Пионерская" на 127 автобусе
-Ехать до конечной остановки "Арцеуловская аллея"
-Далее 7 минут пешком и Вы на месте.</p>
+                <p><b>Общественным транспортом:</b> <br>
+                • От м. "Комендантский пр-кт": авт. 127 или трол. 23.<br>
+                • От м. "Пионерская": авт. 127.<br>
+                До конечной "Арцеуловская аллея", далее 7 мин. пешком.</p>
             </div>
             
-            <a href="https://yandex.ru/maps/-/CCU9Y-Xp~A" target="_blank" style="display: inline-block; margin-top: 25px; padding: 15px 25px; background: rgba(255,255,255,0.1); border-radius: 18px; color: white; text-decoration: none; font-weight: bold; border: 1px solid var(--glass-border);">Открыть в Картах 📍</a>
+            <a href="https://yandex.ru/maps/?pt=30.211941,60.039164&z=16&l=map" target="_blank" class="maps-btn">Открыть в Картах 📍</a>
         </div>
 
         <div class="item">
