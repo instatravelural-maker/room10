@@ -148,7 +148,11 @@
         <h2>🗓 Прямое бронирование</h2>
         <p>Забронируйте следующие даты проживания без комиссий площадок.</p>
         <div class="media-placeholder">
-            <p>Модуль бронирования (Iframe/Widget)</p>
+            <p><div id="hr-widget"></div>
+    <script type="module" src="https://homereserve.ru/widget.js"></script>
+    <script type="module">
+        window.homereserve.initWidgetList({"token":"AeEVhV7jVU"})
+    </script>)</p>
         </div>
         <a href="https://homereserve.ru/AeEVhV7jVU" class="maps-btn" style="width: 100%; box-sizing: border-box; background: var(--primary-blue); margin-top: 20px;">Забронировать сейчас</a>
     </div>
