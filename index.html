@@ -30,10 +30,10 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
 
         .hero {
-            height: 350px;
+            height: 380px;
             border-radius: 32px;
             margin-bottom: 25px;
             position: relative;
@@ -52,26 +52,30 @@
             background: linear-gradient(180deg, transparent 20%, rgba(2, 6, 23, 0.95) 100%);
         }
         .hero-content { position: relative; z-index: 2; }
-        .logo-img { width: 70px; height: 70px; border-radius: 18px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.2); background: white; }
-        .hero h1 { font-size: 2.8rem; margin: 0; font-weight: 800; letter-spacing: -2px; line-height: 1; }
+        .logo-img { width: 75px; height: 75px; border-radius: 18px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.2); background: white; }
+        .hero h1 { font-size: 3.2rem; margin: 0; font-weight: 800; letter-spacing: -2px; line-height: 1; }
 
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 25px;
             margin-bottom: 25px;
+            align-items: stretch; /* (добавил) Выравнивание блоков по высоте в ряду */
         }
         .item {
             background: var(--glass-bg);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border-radius: 30px;
-            padding: 30px;
+            padding: 35px; /* (увеличил) Внутренний отступ для "воздуха" */
             border: 1px solid var(--glass-border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s ease; /* (добавил) Плавность при наведении */
         }
+        .item:hover { transform: translateY(-5px); }
+        
         .wide { grid-column: span 2; }
         .full { grid-column: span 3; }
 
@@ -80,23 +84,31 @@
 
         .description-block {
             margin-top: 15px; 
-            padding: 20px; 
+            padding: 25px; 
             background: rgba(255,255,255,0.03); 
             border-radius: 22px; 
             border: 1px solid rgba(255,255,255,0.05);
             flex-grow: 1;
         }
-        .description-block p { font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; white-space: pre-line; }
+        .description-block p { font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; white-space: pre-line; }
 
-        .media { width: 100%; height: 280px; border-radius: 20px; object-fit: cover; border: 1px solid var(--glass-border); margin-top: 15px; }
+        .media { 
+            width: 100%; 
+            height: auto; 
+            aspect-ratio: 16 / 9; /* (добавил) Правильные пропорции для фото и видео */
+            border-radius: 20px; 
+            object-fit: cover; 
+            border: 1px solid var(--glass-border); 
+            margin-top: 15px; 
+        }
 
         .maps-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-top: 20px;
-            padding: 15px 25px;
+            margin-top: 25px;
+            padding: 18px 25px;
             background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 18px;
@@ -108,52 +120,42 @@
         }
         .maps-btn:hover { background: var(--primary-blue); transform: translateY(-2px); }
         
-        .route-step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-        .route-step span { background: var(--primary-blue); color: white; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; flex-shrink: 0; }
+        .route-step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
+        .route-step span { background: var(--primary-blue); color: white; min-width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: bold; flex-shrink: 0; }
 
         .info-pill {
             background: rgba(0,0,0,0.4);
             border-radius: 20px;
-            padding: 20px;
+            padding: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 15px;
+            margin-top: 20px;
             border: 1px solid rgba(255,255,255,0.05);
         }
-        .code-val { font-size: 1.6rem; color: white; font-weight: 600; }
+        .code-val { font-size: 1.8rem; color: white; font-weight: 600; letter-spacing: 2px; }
         
         .btn-copy { 
             background: white; color: black; border: none; 
-            padding: 10px 18px; border-radius: 14px; cursor: pointer; font-weight: 700;
+            padding: 12px 20px; border-radius: 14px; cursor: pointer; font-weight: 700;
+            transition: 0.3s;
         }
 
         footer { 
-            padding: 60px 20px; 
+            padding: 80px 20px; 
             text-align: center; 
             margin-top: 40px;
             border-top: 1px solid var(--glass-border);
         }
-        .footer-contacts { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center;
-            gap: 15px; 
-            margin-bottom: 30px; 
-        }
-        .footer-contacts a { 
-            color: var(--text-main); 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 1.1rem;
-        }
+        .footer-contacts { display: flex; flex-direction: column; align-items: center; gap: 15px; margin-bottom: 30px; }
+        .footer-contacts a { color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 1.15rem; }
         .footer-copyright { font-size: 0.75rem; color: #475569; letter-spacing: 2px; text-transform: uppercase; }
 
-        @media (max-width: 850px) {
+        @media (max-width: 900px) {
             .bento-grid { grid-template-columns: 1fr; }
             .wide, .full { grid-column: span 1; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero { padding: 30px; height: 300px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero { padding: 30px; height: 320px; }
         }
     </style>
 </head>
@@ -163,15 +165,15 @@
     <div class="hero">
         <div class="hero-content">
             <img src="logo.png" class="logo-img" alt="Logo">
-            <p style="color: #60a5fa; font-weight: 800; margin-bottom: 8px; letter-spacing: 1px;">СВОИ ДНИ • КОНСЬЕРЖ</p>
+            <p style="color: #60a5fa; font-weight: 800; margin-bottom: 10px; letter-spacing: 1px;">СВОИ ДНИ • КОНСЬЕРЖ</p>
             <h1>Добро<br>пожаловать!</h1>
         </div>
     </div>
 
     <div class="item full" style="margin-bottom: 25px;">
         <h2>🗓 Прямое бронирование</h2>
-        <p style="margin-bottom: 20px;">Забронируйте следующие даты проживания без комиссий площадок.</p>
-        <div style="display: flex; justify-content: center; width: 100%; background: rgba(0,0,0,0.2); border-radius: 20px; padding: 20px 0; overflow: hidden;">
+        <p style="margin-bottom: 25px;">Забронируйте следующие даты проживания без комиссий площадок.</p>
+        <div style="display: flex; justify-content: center; width: 100%; background: rgba(0,0,0,0.2); border-radius: 25px; padding: 30px 0; overflow: hidden; border: 1px solid var(--glass-border);">
             <div id="hr-widget" style="width: 95%;">
                 <script type="module" src="https://homereserve.ru/widget.js"></script>
                 <script type="module">
@@ -191,14 +193,14 @@
                 <div class="route-step">
                     <span>1</span>
                     <p>Личным транспортом: Арцеуловская аллея, д. 19, 14 подъезд (дом-свечка первый от школы)
-Бесплатная парковка возле дома</p>
+                    Бесплатная парковка возле дома</p>
                 </div>
                 <div class="route-step">
                     <span>2</span>
                     <p>Если Вы едете к нам общественным транспортом от станции метро "Комендантский пр-кт", Вам нужен 127 автобус или 23 троллейбус
-От метро "Пионерская" на 127 автобусе
-Ехать до конечной остановки "Арцеуловская аллея"
-Далее 7 минут пешком и Вы на месте.</p>
+                    От метро "Пионерская" на 127 автобусе
+                    Ехать до конечной остановки "Арцеуловская аллея"
+                    Далее 7 минут пешком и Вы на месте.</p>
                 </div>
             </div>
             <a href="https://yandex.ru/maps/?pt=30.211941%2C60.039164&z=17" target="_blank" rel="noopener" class="maps-btn">Открыть в Картах 📍</a>
@@ -208,15 +210,15 @@
             <h2>🔐 Доступ</h2>
             <img src="intercom.jpg" class="media" alt="Домофон">
             <div class="info-pill">
-                <div><small style="color:#94a3b8;">ДОМОФОН</small><div class="code-val" id="c1">2631</div></div>
+                <div><small style="color:#94a3b8; font-weight: 800;">ДОМОФОН</small><div class="code-val" id="c1">2631</div></div>
                 <button class="btn-copy" onclick="copy('c1', event)">ВЫЗОВ</button>
             </div>
             <div class="description-block">
                 <p>Вход в подъезд со стороны школы.
 
-Наберите на домофоне следующую комбинацию цифр: 2631, дождитесь открытия двери.
+                Наберите на домофоне следующую комбинацию цифр: 2631, дождитесь открытия двери.
 
-После входа в подъезд поверните в левую дверь, пройдите по ступенькам и в правую дверь до конца.</p>
+                После входа в подъезд поверните в левую дверь, пройдите по ступенькам и в правую дверь до конца.</p>
             </div>
         </div>
 
@@ -237,7 +239,7 @@
                 <div class="route-step">
                     <span>3</span>
                     <p>Закрыть дверь при входе и выходе можно просто захлопнув дверь или захлопнуть и поднять ручку двери кверху. 
-Открыть дверь со стороны квартиры: просто опустите ручку вниз.</p>
+                    Открыть дверь со стороны квартиры: просто опустите ручку вниз.</p>
                 </div>
             </div>
         </div>
@@ -248,7 +250,7 @@
             <div class="description-block">
                 <p>Жилой комплекс находится под охраной.
 
-Охрана обеспечивает порядок на территории дома и следит за соблюдением жильцами и гостями дома закона о тишине.</p>
+                Охрана обеспечивает порядок на территории дома и следит за соблюдением жильцами и гостями дома закона о тишине.</p>
             </div>
         </div>
 
@@ -276,31 +278,31 @@
             <img src="floor.jpg" class="media" alt="Теплый пол">
             <div class="description-block">
                 <p>Включение: зажмите кнопку «Режим» до появления света на экране. Пол прогреется за 10–15 минут.
-Выключение: нажмите «Режим», чтобы разбудить экран, а затем зажмите кнопку до его угасания.</p>
+                Выключение: нажмите «Режим», чтобы разбудить экран, а затем зажмите кнопку до его угасания.</p>
             </div>
         </div>
 
         <div class="item full">
             <h2>📝 Правила проживания</h2>
-            <div class="rules-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-top: 10px; align-items: start;">
+            <div class="rules-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 10px; align-items: start;">
                 <div class="rule-item">
-                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🤫 ТИШИНА</p>
-                    <p style="font-size: 0.85rem;">С 22:00 до 08:00. Нарушение ведет к выселению.</p>
+                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 10px;">🤫 ТИШИНА</p>
+                    <p style="font-size: 0.9rem;">С 22:00 до 08:00. Нарушение ведет к выселению.</p>
                 </div>
                 <div class="rule-item">
-                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🚭 КУРЕНИЕ</p>
-                    <p style="font-size: 0.85rem;">Строго запрещено в квартире и на балконе. Штраф — залог.</p>
+                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 10px;">🚭 КУРЕНИЕ</p>
+                    <p style="font-size: 0.9rem;">Строго запрещено в квартире и на балконе. Штраф — залог.</p>
                 </div>
                 <div class="rule-item">
-                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🐾 ВАЖНО</p>
-                    <p style="font-size: 0.85rem;">Без животных. Пожалуйста, выносите мусор в баки во дворе.</p>
+                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 10px;">🐾 ВАЖНО</p>
+                    <p style="font-size: 0.9rem;">Без животных. Пожалуйста, выносите мусор в баки во дворе.</p>
                 </div>
                 <div class="rule-item">
-                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🌐 ИНТЕРНЕТ</p>
-                    <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 8px;">Сеть: <b>Арцеулка 5G</b></p>
-                    <div style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 8px 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); width: fit-content;">
-                        <span id="wifi-pass" style="font-family: monospace; color: #fff;">1Q194Aws</span>
-                        <button onclick="copy('wifi-pass', event)" style="background: #fff; border: none; padding: 4px 10px; border-radius: 8px; font-size: 0.7rem; font-weight: 800; cursor: pointer;">КОПИРОВАТЬ</button>
+                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 10px;">🌐 ИНТЕРНЕТ</p>
+                    <p style="font-size: 0.9rem; color: #94a3b8; margin-bottom: 8px;">Сеть: <b>Арцеулка 5G</b></p>
+                    <div style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 10px 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); width: fit-content;">
+                        <span id="wifi-pass" style="font-family: monospace; color: #fff; font-size: 1rem;">1Q194Aws</span>
+                        <button onclick="copy('wifi-pass', event)" class="btn-copy" style="padding: 6px 12px; font-size: 0.75rem;">КОПИРОВАТЬ</button>
                     </div>
                 </div>
             </div>
@@ -311,7 +313,7 @@
         <div class="footer-contacts">
             <a href="tel:+79214070305">📞 +7 (921) 407-03-05</a>
             <a href="mailto:info@gorshkovrealtor.ru">✉️ info@gorshkovrealtor.ru</a>
-            <p>📍 г. Санкт-Петербург, Арцеуловская аллея, д. 19, корп. 1</p>
+            <p style="color: #94a3b8; margin-top: 5px;">📍 г. Санкт-Петербург, Арцеуловская аллея, д. 19, корп. 1</p>
         </div>
         <div class="footer-copyright">
             © 2026 СВОИ ДНИ. EXCELLENCE IN EVERY DETAIL.
@@ -327,7 +329,13 @@
             const btn = event.target;
             const oldText = btn.innerText;
             btn.innerText = 'ГОТОВО';
-            setTimeout(() => { btn.innerText = oldText; }, 1200);
+            btn.style.background = '#3b82f6';
+            btn.style.color = '#fff';
+            setTimeout(() => { 
+                btn.innerText = oldText; 
+                btn.style.background = '#fff';
+                btn.style.color = '#000';
+            }, 1200);
         }
     }
 
