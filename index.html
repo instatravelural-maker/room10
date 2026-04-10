@@ -3,73 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инструкция по заселению</title>
+    <title>Инструкция по заселению | GidKvartira</title>
     <style>
-        :root { --main-blue: #007AFF; --bg: #f2f2f7; }
-        body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg); margin: 0; display: flex; justify-content: center; }
-        .wrapper { max-width: 450px; background: white; min-height: 100vh; box-shadow: 0 0 15px rgba(0,0,0,0.05); }
-        .header-img { width: 100%; height: 200px; object-fit: cover; }
-        .p-20 { padding: 20px; }
-        h1 { font-size: 24px; margin: 0 0 10px; }
-        .address { color: #8e8e93; margin-bottom: 25px; display: block; }
-        
-        /* Блоки с кодами */
-        .code-card {
-            background: #f9f9fb; border-radius: 16px; padding: 16px;
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 12px; border: 1px solid #e5e5ea;
-        }
-        .code-label { font-size: 13px; color: #8e8e93; text-transform: uppercase; font-weight: 600; }
-        .code-value { font-size: 22px; font-weight: bold; color: #1c1c1e; margin-top: 4px; }
-        .btn-copy { 
-            background: var(--main-blue); color: white; border: none; 
-            padding: 10px 16px; border-radius: 10px; font-weight: 600; cursor: pointer;
+        :root {
+            --primary: #2563eb; /* Синий акцент */
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
 
-        /* Инструкции */
-        .step { margin-top: 30px; }
-        .step img { width: 100%; border-radius: 12px; margin: 10px 0; border: 1px solid #eee; }
-        .step p { font-size: 15px; color: #3a3a3c; line-height: 1.4; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 500px; /* Идеально для мобильных и узких окон ПК */
+            margin: 0 auto;
+            background: var(--card-bg);
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        /* Шапка с фото */
+        .header {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+        .header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .header-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 20px;
+            color: white;
+        }
+
+        /* Стили блоков */
+        .section {
+            padding: 20px;
+            border-bottom: 8px solid var(--bg);
+        }
+        h2 { font-size: 18px; margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+        p { font-size: 15px; margin: 5px 0; color: #475569; }
+
+        /* Карточки с кодами (выровнены по размеру) */
+        .data-card {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+        }
+        .data-info b { display: block; font-size: 12px; color: #64748b; text-transform: uppercase; }
+        .data-value { font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+
+        .btn-copy {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s;
+            font-size: 13px;
+        }
+        .btn-copy:active { transform: scale(0.95); }
+
+        /* Изображения в тексте */
+        .instruction-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Список правил */
+        .rules-list { padding-left: 20px; }
+        .rules-list li { margin-bottom: 8px; font-size: 14px; }
+
+        @media (max-width: 500px) {
+            .container { width: 100%; }
+        }
     </style>
 </head>
 <body>
 
-<div class="wrapper">
-    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" class="header-image">
+<div class="container">
+    <div class="header">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="Квартира">
+        <div class="header-overlay">
+            <h1 style="margin:0; font-size: 22px;">Добро пожаловать!</h1>
+            <p style="color: #cbd5e1; margin: 0;">Инструкция по заезду</p>
+        </div>
+    </div>
 
-    <div class="p-20">
-        <h1>Инструкция по заезду</h1>
-        <span class="address">📍 ул. Примерная, д. 10, кв. 45</span>
+    <div class="section">
+        <h2>📍 Адрес и локация</h2>
+        <p><b>г. Москва, ул. Примерная, д. 15, кв. 102</b></p>
+        <p>Этаж 12, из лифта направо до конца коридора.</p>
+    </div>
 
-        <div class="code-card">
-            <div>
-                <div class="code-label">Домофон</div>
-                <div class="code-value" id="c1">#1234</div> </div>
-            <button class="btn-copy" onclick="copy('c1')">Копировать</button>
+    <div class="section">
+        <h2>🔐 Доступ в квартиру</h2>
+        
+        <div class="data-card">
+            <div class="data-info">
+                <b>Код от домофона</b>
+                <div class="data-value" id="code-dom">#1234</div>
+            </div>
+            <button class="btn-copy" onclick="copy('code-dom')">Копировать</button>
         </div>
 
-        <div class="code-card">
-            <div>
-                <div class="code-label">Кейбокс у двери</div>
-                <div class="code-value" id="c2">5678</div> </div>
-            <button class="btn-copy" onclick="copy('c2')">Копировать</button>
+        <div class="data-card" style="margin-top:10px;">
+            <div class="data-info">
+                <b>Код от кейбокса</b>
+                <div class="data-value" id="code-key">5566</div>
+            </div>
+            <button class="btn-copy" onclick="copy('code-key')">Копировать</button>
         </div>
+    </div>
 
-        <div class="step">
-            <h3>Как найти кейбокс</h3>
-            <p>Поднимитесь на 3-й этаж, из лифта направо. Черная дверь с табличкой "45". Кейбокс висит слева от ручки.</p>
-            <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=800&q=80">
+    <div class="section">
+        <h2>🌐 Интернет и Wi-Fi</h2>
+        <div class="data-card">
+            <div class="data-info">
+                <b>Название и пароль</b>
+                <div class="data-value" id="wifi-pass">Apart_Guest / 88889999</div>
+            </div>
+            <button class="btn-copy" onclick="copy('wifi-pass')">Копировать</button>
         </div>
+    </div>
+
+    <div class="section">
+        <h2>📸 Как найти ключ</h2>
+        <p>Кейбокс расположен слева от входной двери на уровне глаз.</p>
+        <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=800&q=80" class="instruction-img">
+    </div>
+
+    <div class="section">
+        <h2>📝 Правила проживания</h2>
+        <ul class="rules-list">
+            <li>Курение в квартире строго запрещено.</li>
+            <li>Соблюдайте тишину с 22:00 до 08:00.</li>
+            <li>Выезд до 12:00, заезд после 14:00.</li>
+        </ul>
     </div>
 </div>
 
 <script>
     function copy(id) {
-        const val = document.getElementById(id).innerText;
-        navigator.clipboard.writeText(val);
+        const text = document.getElementById(id).innerText.split(' / ')[0]; // Копирует пароль, если есть разделитель
+        navigator.clipboard.writeText(text);
+        
+        // Визуальный отклик кнопки
         const btn = event.target;
-        btn.innerText = 'Готово!';
-        setTimeout(() => btn.innerText = 'Копировать', 1500);
+        const originalText = btn.innerText;
+        btn.innerText = 'Скопировано';
+        btn.style.background = '#059669';
+        
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = '#2563eb';
+        }, 1500);
     }
 </script>
 
