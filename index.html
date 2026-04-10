@@ -109,7 +109,7 @@
         .maps-btn:hover { background: var(--primary-blue); transform: translateY(-2px); }
         
         .route-step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-        .route-step span { background: var(--primary-blue); color: white; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
+        .route-step span { background: var(--primary-blue); color: white; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; flex-shrink: 0; }
 
         .info-pill {
             background: rgba(0,0,0,0.4);
@@ -128,13 +128,11 @@
             padding: 10px 18px; border-radius: 14px; cursor: pointer; font-weight: 700;
         }
 
-        /* ПОПРАВЛЕННЫЙ ПОДВАЛ */
         footer { 
-            padding: 80px 20px 40px; 
+            padding: 60px 20px; 
             text-align: center; 
             margin-top: 40px;
             border-top: 1px solid var(--glass-border);
-            position: relative;
         }
         .footer-contacts { 
             display: flex; 
@@ -181,7 +179,7 @@
                 </script>
             </div>
         </div>
-        <a href="https://homereserve.ru/AeEVhV7jVU" class="maps-btn" style="background: var(--primary-blue); color: #fff;">Забронировать сейчас</a>
+        <a href="https://homereserve.ru/AeEVhV7jVU" class="maps-btn" style="background: var(--primary-blue); color: #fff; width: 100%; box-sizing: border-box;">Забронировать сейчас</a>
     </div>
 
     <div class="bento-grid">
@@ -189,9 +187,15 @@
             <h2>🚗 Как добраться</h2>
             <img src="way.jpg" class="media" alt="Карта">
             <div class="description-block">
-                <p>Наш адрес: <b>Арцеуловская аллея, д. 19, корп. 1</b></p>
-                <div class="route-step" style="margin-top:15px"><span>1</span><p>Личным транспортом: 14 подъезд (дом-свечка первый от школы).</p></div>
-                <div class="route-step"><span>2</span><p>Общественным: авт. 127 или трол. 23 до кон. ост. "Арцеуловская аллея".</p></div>
+                <p style="margin-bottom: 15px;">Наш адрес: <b>Арцеуловская аллея, д. 19, корп. 1</b></p>
+                <div class="route-step">
+                    <span>1</span>
+                    <p>Личным транспортом: Арцеуловская аллея, д. 19, 14 подъезд (дом-свечка первый от школы) Бесплатная парковка возле дома.</p>
+                </div>
+                <div class="route-step">
+                    <span>2</span>
+                    <p>Общественным транспортом от ст. м. "Комендантский пр-кт" (авт. 127, тролл. 23) или "Пионерская" (авт. 127) до кон. ост. "Арцеуловская аллея". Далее 7 мин. пешком.</p>
+                </div>
             </div>
             <a href="https://yandex.ru/maps/?pt=30.211941%2C60.039164&z=17" target="_blank" rel="noopener" class="maps-btn">Открыть в Картах 📍</a>
         </div>
@@ -203,7 +207,9 @@
                 <div><small style="color:#94a3b8;">ДОМОФОН</small><div class="code-val" id="c1">2631</div></div>
                 <button class="btn-copy" onclick="copy('c1', event)">ВЫЗОВ</button>
             </div>
-            <div class="description-block"><p>Вход со стороны школы. Наберите код, поверните в левую дверь, далее по ступеням в правую до конца.</p></div>
+            <div class="description-block">
+                <p>Вход со стороны школы. Наберите код, поверните в левую дверь, далее по ступеням и в правую дверь до конца.</p>
+            </div>
         </div>
 
         <div class="item wide">
@@ -212,26 +218,54 @@
                 <iframe src="https://kinescope.io/rvrHaiMd39fBvqmdknZfVL" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allowfullscreen></iframe>
             </div>
             <div class="description-block">
-                <p>1. Проведите рукой по панели.<br>2. Введите код из СМС и нажмите #.<br>3. После сигнала открывайте.</p>
+                <div class="route-step">
+                    <span>1</span>
+                    <p>Проведите рукой по верхней панели замка, чтобы активировать его.</p>
+                </div>
+                <div class="route-step">
+                    <span>2</span>
+                    <p>Введите код, высланный вам в мессенджер или СМС, и нажмите #.</p>
+                </div>
+                <div class="route-step">
+                    <span>3</span>
+                    <p>После звукового сигнала «Дверь открыта» входите. Закрывается дверь автоматически при захлопывании.</p>
+                </div>
             </div>
         </div>
 
         <div class="item">
             <h2>🛡 Охрана</h2>
             <img src="security.jpg" class="media" alt="Пост охраны">
-            <div class="description-block"><p>ЖК под охраной. Пожалуйста, соблюдайте закон о тишине.</p></div>
+            <div class="description-block">
+                <p>ЖК находится под охраной. Охрана следит за порядком и соблюдением закона о тишине.</p>
+            </div>
         </div>
 
         <div class="item wide">
             <h2>✨ Развлечения</h2>
             <img src="entertainment.jpg" class="media" alt="Развлечения">
-            <div class="description-block"><p>Smart TV: OTT Player (600+ каналов), Okko. YouTube временно недоступен.</p></div>
+            <div class="description-block">
+                <div class="route-step">
+                    <span>1</span>
+                    <p><b>OTT Player:</b> Более 600 ТВ-каналов в высоком качестве.</p>
+                </div>
+                <div class="route-step">
+                    <span>2</span>
+                    <p><b>Okko:</b> Популярные фильмы и сериалы уже доступны.</p>
+                </div>
+                <div class="route-step">
+                    <span>3</span>
+                    <p><b>YouTube:</b> К сожалению, временно не работает по техническим причинам.</p>
+                </div>
+            </div>
         </div>
 
         <div class="item">
             <h2>🚀 Возможности</h2>
             <img src="floor.jpg" class="media" alt="Теплый пол">
-            <div class="description-block"><p>Тёплый пол: удерживайте «Режим» для включения. Нагрев 15 минут.</p></div>
+            <div class="description-block">
+                <p>Тёплый пол в ванной: удерживайте кнопку «Режим» до включения экрана. Нагрев за 10-15 мин.</p>
+            </div>
         </div>
 
         <div class="item full">
@@ -243,11 +277,11 @@
                 </div>
                 <div class="rule-item">
                     <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🚭 КУРЕНИЕ</p>
-                    <p style="font-size: 0.85rem;">Строго запрещено везде. Штраф — залог.</p>
+                    <p style="font-size: 0.85rem;">Строго запрещено в квартире и на балконе. Штраф — залог.</p>
                 </div>
                 <div class="rule-item">
                     <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🐾 ВАЖНО</p>
-                    <p style="font-size: 0.85rem;">Без животных. Пожалуйста, выносите мусор.</p>
+                    <p style="font-size: 0.85rem;">Без животных. Пожалуйста, выносите мусор в баки во дворе.</p>
                 </div>
                 <div class="rule-item">
                     <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🌐 ИНТЕРНЕТ</p>
@@ -259,7 +293,9 @@
                 </div>
             </div>
         </div>
-    </div> <footer>
+    </div>
+
+    <footer>
         <div class="footer-contacts">
             <a href="tel:+79214070305">📞 +7 (921) 407-03-05</a>
             <a href="mailto:info@gorshkovrealtor.ru">✉️ info@gorshkovrealtor.ru</a>
@@ -269,14 +305,16 @@
             © 2026 СВОИ ДНИ. EXCELLENCE IN EVERY DETAIL.
         </div>
     </footer>
-</div> <script>
+</div>
+
+<script>
     function copy(id, event) {
         const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text);
         if (event) {
             const btn = event.target;
             const oldText = btn.innerText;
-            btn.innerText = 'DONE';
+            btn.innerText = 'ГОТОВО';
             setTimeout(() => { btn.innerText = oldText; }, 1200);
         }
     }
