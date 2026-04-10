@@ -60,14 +60,14 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
             margin-bottom: 25px;
-            align-items: stretch;
+            align-items: stretch; /* Выравнивает блоки по высоте в ряду */
         }
         .item {
             background: var(--glass-bg);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border-radius: 30px;
-            padding: 35px;
+            padding: 35px; /* Увеличен отступ для "воздуха" */
             border: 1px solid var(--glass-border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             display: flex;
@@ -91,10 +91,11 @@
         }
         .description-block p { font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; white-space: pre-line; }
 
-        /* Фикс картинок - теперь они всегда ровные */
+        /* ИСПРАВЛЕНО: Крупные, адаптивные медиа с идеальными пропорциями */
         .media { 
             width: 100%; 
-            height: 280px; 
+            height: auto; 
+            aspect-ratio: 16 / 9; /* Профессиональный стандарт */
             border-radius: 20px; 
             object-fit: cover; 
             border: 1px solid var(--glass-border); 
@@ -155,7 +156,7 @@
             .wide, .full { grid-column: span 1; }
             .hero h1 { font-size: 2.5rem; }
             .hero { padding: 30px; height: 320px; }
-            .media { height: 220px; }
+            .media { aspect-ratio: 4 / 3; } /* Чуть компактнее на мобильных */
         }
     </style>
 </head>
@@ -172,8 +173,8 @@
 
     <div class="item full" style="margin-bottom: 25px;">
         <h2>🗓 Прямое бронирование</h2>
-        <p style="margin-bottom: 20px;">Забронируйте следующие даты проживания без комиссий площадок.</p>
-        <div style="display: flex; justify-content: center; width: 100%; background: rgba(0,0,0,0.2); border-radius: 20px; padding: 20px 0; overflow: hidden;">
+        <p style="margin-bottom: 25px;">Забронируйте следующие даты проживания без комиссий площадок.</p>
+        <div style="display: flex; justify-content: center; width: 100%; background: rgba(0,0,0,0.2); border-radius: 25px; padding: 30px 0; overflow: hidden; border: 1px solid var(--glass-border);">
             <div id="hr-widget" style="width: 95%;">
                 <script type="module" src="https://homereserve.ru/widget.js"></script>
                 <script type="module">
@@ -284,24 +285,24 @@
 
         <div class="item full">
             <h2>📝 Правила проживания</h2>
-            <div class="rules-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 10px; align-items: start;">
+            <div class="rules-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 10px; align-items: start;">
                 <div class="rule-item">
-                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🤫 ТИШИНА</p>
-                    <p style="font-size: 0.85rem;">С 22:00 до 08:00. Нарушение ведет к выселению.</p>
+                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 10px;">🤫 ТИШИНА</p>
+                    <p style="font-size: 0.9rem;">С 22:00 до 08:00. Нарушение ведет к выселению.</p>
                 </div>
                 <div class="rule-item">
-                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🚭 КУРЕНИЕ</p>
-                    <p style="font-size: 0.85rem;">Строго запрещено в квартире и на балконе. Штраф — залог.</p>
+                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 10px;">🚭 КУРЕНИЕ</p>
+                    <p style="font-size: 0.9rem;">Строго запрещено в квартире и на балконе. Штраф — залог.</p>
                 </div>
                 <div class="rule-item">
-                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🐾 ВАЖНО</p>
-                    <p style="font-size: 0.85rem;">Без животных. Пожалуйста, выносите мусор в баки во дворе.</p>
+                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 10px;">🐾 ВАЖНО</p>
+                    <p style="font-size: 0.9rem;">Без животных. Пожалуйста, выносите мусор в баки во дворе.</p>
                 </div>
                 <div class="rule-item">
-                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 8px;">🌐 ИНТЕРНЕТ</p>
+                    <p style="color: #60a5fa; font-weight: 700; margin-bottom: 10px;">🌐 ИНТЕРНЕТ</p>
                     <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 8px;">Сеть: <b>Арцеулка 5G</b></p>
                     <div style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.05); padding: 10px 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); width: fit-content;">
-                        <span id="wifi-pass" style="font-family: monospace; color: #fff;">1Q194Aws</span>
+                        <span id="wifi-pass" style="font-family: monospace; color: #fff; font-size: 1rem;">1Q194Aws</span>
                         <button onclick="copy('wifi-pass', event)" class="btn-copy">КОПИРОВАТЬ</button>
                     </div>
                 </div>
