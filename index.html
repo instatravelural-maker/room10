@@ -3,62 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Svoi Dni | Premium Concierge</title>
+    <title>Svoi Dni | Premium Living</title>
     <style>
         :root {
-            --bg: #030712;
-            --card-bg: rgba(17, 24, 39, 0.7);
-            --accent-blue: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.5);
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
-            --border: rgba(255, 255, 255, 0.1);
+            --bg-dark: #020617;
+            --primary-blue: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.4);
+            --glass-bg: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
         }
 
         body {
-            background-color: var(--bg);
+            background: var(--bg-dark);
+            /* Анимированный градиент на фоне */
             background-image: 
-                radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(30, 58, 138, 0.2) 0%, transparent 50%);
+                radial-gradient(circle at 20% 20%, rgba(30, 58, 138, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(15, 23, 42, 0.5) 0%, transparent 40%);
             font-family: 'Inter', -apple-system, system-ui, sans-serif;
-            color: var(--text-primary);
+            color: var(--text-main);
             margin: 0;
-            padding: 0;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
         }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; flex-grow: 1; }
 
-        /* Hero Section */
+        /* Обложка с эффектом глубины */
         .hero {
-            height: 400px;
+            height: 350px;
             border-radius: 32px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             position: relative;
             overflow: hidden;
             background: url('hero.jpg') center/cover;
+            border: 1px solid var(--glass-border);
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+            align-items: flex-end;
             padding: 40px;
-            border: 1px solid var(--border);
         }
 
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(3,7,18,0.9) 0%, transparent 70%);
+            background: linear-gradient(180deg, transparent 0%, rgba(2, 6, 23, 0.9) 100%);
         }
 
-        .hero-content { position: relative; z-index: 1; }
-        .logo-img { width: 80px; height: 80px; border-radius: 20px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.2); }
-        .hero h1 { font-size: 2.5rem; margin: 0; font-weight: 800; letter-spacing: -1px; }
+        .hero-content { position: relative; z-index: 2; }
+        .logo-img { width: 70px; height: 70px; border-radius: 18px; margin-bottom: 15px; border: 1px solid var(--glass-border); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: 2.8rem; margin: 0; font-weight: 800; letter-spacing: -2px; line-height: 1; }
 
-        /* Бронирование - Главная кнопка */
+        /* Кнопка бронирования с неоновым эффектом */
         .booking-card {
-            background: linear-gradient(90deg, #1e40af, #3b82f6);
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
             padding: 24px;
             border-radius: 24px;
             text-align: center;
@@ -68,67 +69,74 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 15px;
             font-weight: 700;
-            font-size: 1.2rem;
-            transition: 0.3s;
-            box-shadow: 0 0 30px var(--accent-glow);
+            font-size: 1.3rem;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 25px var(--accent-glow);
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .booking-card:hover { transform: scale(1.02); filter: brightness(1.1); }
+        .booking-card:hover { transform: scale(1.01) translateY(-2px); box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
 
-        /* Bento Grid */
+        /* Bento Grid Layout */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: minmax(200px, auto);
+            grid-auto-rows: minmax(180px, auto);
             gap: 20px;
         }
 
         .item {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border-radius: 28px;
-            padding: 24px;
-            border: 1px solid var(--border);
-            transition: 0.4s cubic-bezier(0.2, 0, 0, 1);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 30px;
+            border: 1px solid var(--glass-border);
+            transition: 0.3s ease;
         }
+        .item:hover { background: rgba(30, 41, 59, 0.6); border-color: rgba(255,255,255,0.2); }
 
-        .item:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-5px); }
-
-        /* Разные размеры для Bento эффекта */
-        .tall { grid-row: span 2; }
         .wide { grid-column: span 2; }
+        .tall { grid-row: span 2; }
 
-        h2 { font-size: 1.1rem; margin: 0 0 15px 0; color: var(--accent-blue); display: flex; align-items: center; gap: 8px; }
-        p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; }
+        h2 { font-size: 1rem; color: var(--primary-blue); text-transform: uppercase; letter-spacing: 2px; margin: 0 0 20px 0; font-weight: 700; }
+        p { color: var(--text-dim); line-height: 1.6; margin: 0; }
 
-        .media { width: 100%; border-radius: 18px; object-fit: cover; border: 1px solid var(--border); }
-        .video-wrapper { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 16/9; }
-
-        /* Коды доступа */
-        .code-box {
-            background: rgba(255,255,255,0.05);
-            border-radius: 16px;
-            padding: 15px;
+        /* Внутренние элементы */
+        .media { width: 100%; border-radius: 20px; object-fit: cover; border: 1px solid var(--glass-border); }
+        
+        .code-display {
+            background: rgba(0,0,0,0.3);
+            border-radius: 18px;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-top: 15px;
         }
-        .code-val { font-family: monospace; font-size: 1.2rem; color: white; letter-spacing: 2px; }
-        .copy-btn { 
-            background: white; color: black; border: none; padding: 6px 12px; 
-            border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.8rem;
+        .code-val { font-size: 1.5rem; font-family: 'Monaco', monospace; font-weight: 600; color: white; }
+        .btn-copy { 
+            background: var(--primary-blue); color: white; border: none; 
+            padding: 8px 16px; border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 0.8rem;
+            transition: 0.2s;
         }
+        .btn-copy:active { transform: scale(0.9); }
 
-        footer { text-align: center; margin-top: 60px; padding: 40px; border-top: 1px solid var(--border); }
-        .footer-links a { color: var(--text-primary); text-decoration: none; margin: 0 15px; font-weight: 500; }
+        /* Правила в стиле Apple */
+        .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+        .rule-tag { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 20px; text-align: center; border: 1px solid var(--glass-border); }
 
-        @media (max-width: 768px) {
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 40px; }
+        .footer-nav { margin-bottom: 20px; }
+        .footer-nav a { color: var(--text-dim); text-decoration: none; margin: 0 15px; font-weight: 500; transition: 0.2s; }
+        .footer-nav a:hover { color: white; }
+
+        @media (max-width: 850px) {
             .bento-grid { grid-template-columns: 1fr; }
-            .wide { grid-column: span 1; }
-            .hero { height: 300px; padding: 20px; }
-            .hero h1 { font-size: 1.8rem; }
+            .wide, .tall { grid-column: span 1; grid-row: span 1; }
+            .hero { height: 280px; padding: 25px; }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -138,94 +146,11 @@
     <div class="hero">
         <div class="hero-content">
             <img src="logo.png" class="logo-img" alt="Logo">
-            <h1>Свои Дни</h1>
-            <p>Премиальный стандарт вашего проживания</p>
+            <p style="color: var(--primary-blue); font-weight: 700; margin-bottom: 10px;">WELCOME TO SVOI DNI</p>
+            <h1>Премиальный<br>комфорт</h1>
         </div>
     </div>
 
     <a href="https://homereserve.ru/AeEVhV7jVU" class="booking-card">
-        <span>✦</span> Прямое бронирование со скидкой
+        Забронировать проживание <span>→</span>
     </a>
-
-    <div class="bento-grid">
-        <div class="item wide">
-            <h2>🔐 Коды доступа</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                <div class="code-box">
-                    <div><small>ДОМОФОН</small><div class="code-val" id="c1">#4455</div></div>
-                    <button class="copy-btn" onclick="copy('c1')">COPY</button>
-                </div>
-                <div class="code-box">
-                    <div><small>КЕЙБОКС</small><div class="code-val" id="c2">1234</div></div>
-                    <button class="copy-btn" onclick="copy('c2')">COPY</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="item tall">
-            <h2>🚗 Локация</h2>
-            <p>Центр города. 5 минут от набережной. Удобный паркинг во дворе.</p>
-            <img src="way.jpg" class="media" style="height: 250px;">
-        </div>
-
-        <div class="item wide">
-            <h2>🔑 Мастер-класс: Замок</h2>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div class="item">
-            <h2>🛡️ Безопасность</h2>
-            <p>24/7 консьерж и видеонаблюдение. Ваша приватность под защитой.</p>
-        </div>
-
-        <div class="item">
-            <h2>☕ Культура</h2>
-            <p>Лучший кофе в радиусе 100 метров. Авторские завтраки.</p>
-        </div>
-
-        <div class="item wide">
-            <h2>📝 Правила дома</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; text-align: center;">
-                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 20px;">🚭<br><small>НЕ КУРИТЬ</small></div>
-                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 20px;">🤫<br><small>ТИХО С 22:00</small></div>
-                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 20px;">🥂<br><small>БЕЗ ВЕЧЕРИНОК</small></div>
-            </div>
-        </div>
-
-        <div class="item">
-            <h2>📞 Concierge</h2>
-            <p>Мы на связи в WhatsApp мгновенно.</p>
-            <a href="tel:+79990000000" style="color: white; font-weight: bold; text-decoration: none;">Связаться →</a>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-links">
-            <a href="#">WhatsApp</a>
-            <a href="#">Telegram</a>
-            <a href="#">Email</a>
-        </div>
-        <p style="margin-top: 25px;">© 2026 SVOI DNI. EXCELLENCE IN HOSPITALITY.</p>
-    </footer>
-</div>
-
-<script>
-    function copy(id) {
-        const text = document.getElementById(id).innerText;
-        navigator.clipboard.writeText(text);
-        const btn = event.target;
-        btn.innerText = 'DONE';
-        btn.style.background = '#3b82f6';
-        btn.style.color = 'white';
-        setTimeout(() => {
-            btn.innerText = 'COPY';
-            btn.style.background = 'white';
-            btn.style.color = 'black';
-        }, 1500);
-    }
-</script>
-
-</body>
-</html>
