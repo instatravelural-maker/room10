@@ -154,3 +154,78 @@
     <a href="https://homereserve.ru/AeEVhV7jVU" class="booking-card">
         Забронировать проживание <span>→</span>
     </a>
+
+    <div class="bento-grid">
+        
+        <div class="item wide">
+            <h2>🔐 Коды доступа</h2>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+                <div class="code-display">
+                    <div><small style="color:var(--text-dim)">ДОМОФОН</small><div class="code-val" id="c1">#4455</div></div>
+                    <button class="btn-copy" onclick="copy('c1')">Копировать</button>
+                </div>
+                <div class="code-display">
+                    <div><small style="color:var(--text-dim)">КЕЙБОКС</small><div class="code-val" id="c2">1234</div></div>
+                    <button class="btn-copy" onclick="copy('c2')">Копировать</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="item tall">
+            <h2>🚗 Локация</h2>
+            <p>Ваш адрес в самом сердце города. Парковка доступна во внутреннем дворе.</p>
+            <img src="way.jpg" class="media" style="height: 300px; margin-top: 20px;">
+        </div>
+
+        <div class="item wide">
+            <h2>🔑 Видео-гид по замку</h2>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border);">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="item wide">
+            <h2>📝 Правила дома</h2>
+            <div class="rules-grid">
+                <div class="rule-tag">🚭<br><small>No Smoking</small></div>
+                <div class="rule-tag">🔇<br><small>Quiet Hours 22:00</small></div>
+                <div class="rule-tag">🚫<br><small>No Parties</small></div>
+                <div class="rule-tag">🐾<br><small>No Pets</small></div>
+            </div>
+        </div>
+
+        <div class="item">
+            <h2>📞 Concierge</h2>
+            <p>Личный менеджер на связи в WhatsApp.</p>
+            <a href="tel:+79990000000" style="display: block; margin-top: 20px; color: white; font-weight: 700; text-decoration: none;">Позвонить →</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="#">WhatsApp</a>
+            <a href="#">Telegram</a>
+            <a href="#">Location</a>
+        </div>
+        <p style="font-size: 0.8rem;">© 2026 SVOI DNI. PRIVACY FIRST.</p>
+    </footer>
+</div>
+
+<script>
+    function copy(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text);
+        const btn = event.target;
+        const oldText = btn.innerText;
+        btn.innerText = 'ГОТОВО';
+        btn.style.background = '#059669';
+        setTimeout(() => {
+            btn.innerText = oldText;
+            btn.style.background = '#3b82f6';
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>
