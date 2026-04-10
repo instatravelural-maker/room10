@@ -55,7 +55,7 @@
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 1fr; /* Это свойство делает блоки в одном ряду равными */
+            grid-auto-rows: 1fr; /* Делает блоки в одном ряду равными */
             gap: 20px;
         }
         .item {
@@ -68,7 +68,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: 0.3s ease;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Позволяет содержимому растягивать блок */
         }
         .wide { grid-column: span 2; }
         .full { grid-column: span 3; }
@@ -84,7 +84,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-top: 25px;
+            margin-top: auto; /* Прижимает кнопку к низу блока */
             padding: 15px 25px;
             background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -147,15 +147,14 @@
     <div class="item full" style="margin-bottom: 25px;">
         <h2>🗓 Прямое бронирование</h2>
         <p>Забронируйте следующие даты проживания без комиссий площадок.</p>
-        <div class="media-placeholder">
-            <p><div id="hr-widget"></div>
-    <script type="module" src="https://homereserve.ru/widget.js"></script>
-    <script type="module">
-        window.homereserve.initWidgetList({"token":"AeEVhV7jVU"})
-    </script>)</p>
+        <div class="media-placeholder" style="height: auto; padding: 20px;">
+            <div id="hr-widget"></div>
+            <script type="module" src="https://homereserve.ru/widget.js"></script>
+            <script type="module">
+                window.homereserve.initWidgetList({"token":"AeEVhV7jVU"})
+            </script>
         </div>
-   <a href="https://homereserve.ru/AeEVhV7jVU" class="maps-btn" style="width: 100%; box-sizing: border-box; background: var(--primary-blue); margin-top: 20px;">Забронировать сейчас</a>
-    </div>     
+        <a href="https://homereserve.ru/AeEVhV7jVU" class="maps-btn" style="width: 100%; box-sizing: border-box; background: var(--primary-blue); margin-top: 20px;">Забронировать сейчас</a>
     </div>
 
     <div class="bento-grid">
@@ -172,7 +171,7 @@
                 <span>2</span>
                 <p>Если Вы едете к нам общественным транспортом от станции метро "Комендантский пр-кт", Вам нужен 127 автобус или 23 троллейбус<br>От метро "Пионерская" на 127 автобусе<br>Ехать до конечной остановки "Арцеуловская аллея"<br>Далее 7 минут пешком и Вы на месте.</p>
             </div>
-            <a href="https://yandex.ru/maps/?ll=30.211941%2C60.039164&pt=30.211941%2C60.039164%2Cpm2rdm&z=17" target="_blank" class="maps-btn">Открыть в Картах 📍</a>
+            <a href="https://yandex.ru/maps/?ll=30.211941%2C60.039164&pt=30.211941%2C60.039164%2Cpm2rdm&z=17" target="_blank" class="maps-btn" style="margin-top: 25px;">Открыть в Картах 📍</a>
         </div>
 
         <div class="item">
@@ -205,9 +204,7 @@
             
             <div style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 18px; border: 1px solid rgba(255,255,255,0.05); flex-grow: 1;">
                 <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
-                   Жилой комплекс находится под охраной.
-Охрана обеспечивает порядок на территории дома и следит за соблюдением жильцами и гостями дома закона о тишине.
-                    В случае экстренных ситуаций, звоните нам по телефону +79214070305.
+                   Жилой комплекс находится под охраной. Охрана обеспечивает порядок на территории дома и следит за соблюдением жильцами и гостями дома закона о тишине. В случае экстренных ситуаций, звоните нам по телефону +79214070305.
                 </p>
             </div>
         </div>
@@ -249,8 +246,9 @@
         const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text);
         const btn = event.target;
+        const originalText = btn.innerText;
         btn.innerText = 'DONE';
-        setTimeout(() => { btn.innerText = 'ВЫЗОВ'; }, 1200);
+        setTimeout(() => { btn.innerText = originalText; }, 1200);
     }
 </script>
 
