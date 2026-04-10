@@ -3,131 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гид по проживанию | GidKvartira</title>
+    <title>Гид по проживанию | Свои Дни</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #059669;
-            --bg: #f1f5f9;
+            --primary: #1e3a8a; /* Темно-синий под логотип */
+            --accent: #d97706; /* Золотистый под логотип */
+            --bg: #f8fafc;
             --card-bg: #ffffff;
             --text: #1e293b;
         }
 
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); margin: 0; padding: 15px; color: var(--text); }
-        .main-container { max-width: 1100px; margin: 0 auto; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); margin: 0; padding: 20px; color: var(--text); }
+        .main-container { max-width: 900px; margin: 0 auto; }
 
-        /* Шапка */
-        .header-banner {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover; background-position: center; height: 180px; border-radius: 20px;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; margin-bottom: 25px;
+        /* Шапка с логотипом */
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-
-        /* Сетка блоков */
-        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
-
-        .card { background: var(--card-bg); padding: 20px; border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); height: fit-content; }
-        h2 { font-size: 1.15rem; margin-top: 0; color: var(--primary); border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 15px; }
-
-        .data-row { background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .btn-copy { background: var(--primary); color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; }
-
-        .img-box { width: 100%; border-radius: 12px; margin: 10px 0; object-fit: cover; height: 180px; }
-        .video-box { width: 100%; border-radius: 12px; background: #000; height: 200px; margin-top: 10px; }
+        .logo { max-width: 180px; height: auto; margin-bottom: 10px; }
 
         /* Кнопка бронирования */
         .booking-btn {
-            display: block; width: 100%; background: var(--secondary); color: white; text-align: center; 
-            padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-bottom: 20px;
+            display: block; 
+            background: var(--primary); 
+            color: white; 
+            text-align: center; 
+            padding: 18px; 
+            border-radius: 15px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+        }
+        .booking-btn:hover { background: #172554; transform: translateY(-2px); }
+
+        /* Сетка по 2 блока в ряд */
+        .grid-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; /* Ровно две колонки */
+            gap: 20px; 
+            align-items: stretch; /* Это делает карточки в ряду одинаковой высоты */
         }
 
-        /* Подвал */
-        footer { margin-top: 40px; padding: 20px; text-align: center; border-top: 1px solid #cbd5e1; color: #64748b; }
-        footer a { color: var(--primary); text-decoration: none; margin: 0 10px; }
+        .card { 
+            background: var(--card-bg); 
+            padding: 25px; 
+            border-radius: 20px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03); 
+            display: flex;
+            flex-direction: column; /* Чтобы контент внутри тоже можно было тянуть */
+        }
 
-        @media (max-width: 600px) { .grid-layout { grid-template-columns: 1fr; } .header-banner { height: 140px; } }
+        h2 { font-size: 1.1rem; margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px; }
+        
+        .img-box { width: 100%; border-radius: 12px; margin: 15px 0; object-fit: cover; height: 200px; background: #eee; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin-top: 15px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        .data-row { background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .btn-copy { background: #f1f5f9; color: var(--primary); border: 1px solid #e2e8f0; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 12px; }
+        .btn-copy:active { background: var(--primary); color: white; }
+
+        /* Подвал */
+        footer { margin-top: 50px; padding: 30px; text-align: center; color: #64748b; font-size: 14px; }
+        .footer-contacts a { color: var(--primary); text-decoration: none; font-weight: bold; margin: 0 10px; }
+
+        /* Адаптивность под телефон */
+        @media (max-width: 768px) {
+            .grid-layout { grid-template-columns: 1fr; } /* На телефоне 1 колонка */
+            body { padding: 10px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="main-container">
-    <div class="header-banner">
-        <h1>GidKvartira</h1>
-        <p>Ваш комфорт — наш приоритет</p>
+    <div class="header">
+        <img src="logo.png" alt="Свои Дни" class="logo">
+        <p style="margin: 0; color: #64748b;">Ваш персональный гид по проживанию</p>
     </div>
 
-    <a href="ССЫЛКА_НА_ТВОЙ_МОДУЛЬ" class="booking-btn">📅 Забронировать снова со скидкой 10%</a>
+    <a href="https://homereserve.ru/AeEVhV7jVU" target="_blank" class="booking-btn">📅 Забронировать самостоятельно</a>
 
     <div class="grid-layout">
         
         <div class="card">
-            <h2>🔐 Доступ и Wi-Fi</h2>
-            <div class="data-row"><div><small>Домофон</small><br><b>#1234</b></div><button class="btn-copy" onclick="copy('#1234')">Копировать</button></div>
-            <div class="data-row"><div><small>Кейбокс</small><br><b>5566</b></div><button class="btn-copy" onclick="copy('5566')">Копировать</button></div>
-            <div class="data-row"><div><small>Wi-Fi</small><br><b>Pass123</b></div><button class="btn-copy" onclick="copy('Pass123')">Копировать</button></div>
-        </div>
-
-        <div class="card">
             <h2>🚗 Как добраться</h2>
-            <p>От метро "Примерная" 5 минут пешком. Вход через калитку с кодом 111.</p>
-            <img src="https://via.placeholder.com/400x200?text=Карта+проезда" class="img-box">
+            <p>Дом расположен в 5 минутах от центра. Удобный заезд со стороны набережной.</p>
+            <img src="way.jpg" class="img-box" alt="Схема проезда">
         </div>
 
         <div class="card">
             <h2>🚪 Вход в здание</h2>
-            <p>Используйте магнитный ключ или введите код на панели справа от двери.</p>
-            <img src="https://via.placeholder.com/400x200?text=Фото+входа" class="img-box">
+            <p>Центральный вход через калитку. Введите код на домофоне, чтобы открыть дверь.</p>
+            <div class="data-row">
+                <div><small>Код калитки</small><br><b>#4455</b></div>
+                <button class="btn-copy" onclick="copy('#4455')">Копировать</button>
+            </div>
+            <img src="entrance.jpg" class="img-box" alt="Вход">
         </div>
 
         <div class="card">
-            <h2>🔑 Как открыть замок</h2>
-            <p>Поверните ручку до упора вправо, затем на себя.</p>
-            <iframe class="video-box" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            <h2>🔑 Открытие двери</h2>
+            <p>Посмотрите короткую видео-инструкцию, как пользоваться электронным замком.</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
 
         <div class="card">
-            <h2>🛡️ Безопасность и Охрана</h2>
-            <p>Территория под видеонаблюдением. Пост охраны в первом корпусе.</p>
-            <img src="https://via.placeholder.com/400x200?text=Пост+охраны" class="img-box">
+            <h2>🛡️ Охрана и порядок</h2>
+            <p>Пост охраны работает 24/7. В случае вопросов свяжитесь по внутреннему номеру.</p>
+            <img src="security.jpg" class="img-box" alt="Охрана">
         </div>
 
         <div class="card">
             <h2>☕ Развлечения рядом</h2>
-            <p>Лучший кофе в "Кофемании" за углом. Кинотеатр в ТЦ "Мир" (500м).</p>
-            <img src="https://via.placeholder.com/400x200?text=Кафе+рядом" class="img-box">
+            <p>Рекомендуем кофейню на первом этаже и парк в 200 метрах от дома.</p>
+            <img src="fun.jpg" class="img-box" alt="Кафе">
         </div>
 
         <div class="card">
-            <h2>✨ Дополнительно</h2>
-            <p>В шкафу есть гладильная доска и отпариватель. Доп. белье в комоде.</p>
-            <img src="https://via.placeholder.com/400x200?text=Удобства" class="img-box">
+            <h2>✨ Доп. услуги</h2>
+            <p>Чай, кофе, гигиенические наборы уже ждут вас в квартире.</p>
+            <img src="amenities.jpg" class="img-box" alt="Услуги">
         </div>
 
         <div class="card">
-            <h2>📜 Правила дома</h2>
-            <ul style="padding-left: 20px; font-size: 14px;">
-                <li>Без вечеринок и шума после 22:00.</li>
-                <li>Не курить (установлены датчики).</li>
-                <li>Берегите имущество как свое.</li>
+            <h2>📝 Основные правила</h2>
+            <ul style="padding-left: 20px; font-size: 14px; margin: 0;">
+                <li>Заезд с 14:00, выезд до 12:00.</li>
+                <li>Курение запрещено (штраф 5000р).</li>
+                <li>Тихие часы с 22:00 до 08:00.</li>
+                <li>Бережное отношение к имуществу.</li>
             </ul>
+        </div>
+
+        <div class="card">
+            <h2>📞 Поддержка</h2>
+            <p>Мы всегда на связи, если у вас возникли вопросы по проживанию.</p>
+            <div class="data-row">
+                <div><small>WhatsApp / Телефон</small><br><b>+7 (999) 000-00-00</b></div>
+            </div>
         </div>
 
     </div>
 
     <footer>
-        <p>Нужна помощь? Свяжитесь с нами:</p>
-        <p>
-            📞 <a href="tel:+79991234567">+7 (999) 123-45-67</a> | 
-            ✉️ <a href="mailto:info@mail.ru">info@mail.ru</a>
-        </p>
-        <p>© 2026 GidKvartira — Сервис комфортного заселения</p>
+        <div class="footer-contacts">
+            <a href="tel:+79990000000">📞 Позвонить</a> | 
+            <a href="mailto:hello@svoidni.ru">✉️ Написать</a>
+        </div>
+        <p style="margin-top: 15px;">© 2026 Свои Дни. Работаем для вашего комфорта.</p>
     </footer>
 </div>
 
 <script>
     function copy(text) {
         navigator.clipboard.writeText(text);
-        alert('Скопировано: ' + text);
+        // Простая индикация
+        const btn = event.target;
+        const originalText = btn.innerText;
+        btn.innerText = '✅';
+        setTimeout(() => btn.innerText = originalText, 1000);
     }
 </script>
 
