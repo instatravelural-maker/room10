@@ -55,7 +55,6 @@
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 1fr; /* Выравнивание высоты всех блоков в ряду */
             gap: 20px;
         }
         .item {
@@ -82,11 +81,11 @@
             background: rgba(255,255,255,0.03); 
             border-radius: 22px; 
             border: 1px solid rgba(255,255,255,0.05);
-            flex-grow: 1; /* Растягивает блок, заполняя пустоту */
+            flex-grow: 1;
         }
         .description-block p { font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
 
-        .media { width: 100%; border-radius: 20px; object-fit: cover; border: 1px solid var(--glass-border); margin-top: 15px; }
+        .media { width: 100%; height: 280px; border-radius: 20px; object-fit: cover; border: 1px solid var(--glass-border); margin-top: 15px; }
         .media-placeholder { width: 100%; height: 200px; border-radius: 20px; background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.1); margin-top: 15px; display: flex; align-items: center; justify-content: center; color: #475569; }
 
         .maps-btn {
@@ -138,7 +137,7 @@
         .footer-contacts a { color: #f8fafc; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
 
         @media (max-width: 850px) {
-            .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+            .bento-grid { grid-template-columns: 1fr; }
             .wide, .full { grid-column: span 1; }
         }
     </style>
@@ -171,7 +170,7 @@
         
         <div class="item wide">
             <h2>🚗 Как добраться</h2>
-            <img src="way.jpg" class="media" style="height: 280px; margin-bottom: 10px;" alt="Карта">
+            <img src="way.jpg" class="media" alt="Карта">
             <div class="description-block">
                 <p style="margin-bottom: 15px;">Наш адрес: <b>Арцеуловская аллея, д. 19, корп. 1</b></p>
                 <div class="route-step">
@@ -188,7 +187,7 @@
 
         <div class="item">
             <h2>🔐 Доступ</h2>
-            <img src="intercom.jpg" class="media" style="height: 280px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Домофон">
+            <img src="intercom.jpg" class="media" alt="Домофон">
             <div class="info-pill">
                 <div><small style="color:#94a3b8;">ДОМОФОН</small><div class="code-val" id="c1">2631</div></div>
                 <button class="btn-copy" onclick="copy('c1')">ВЫЗОВ</button>
@@ -210,7 +209,7 @@
 
         <div class="item">
             <h2>🛡 Охрана</h2>
-            <img src="security.jpg" class="media" style="height: 280px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Пост охраны">
+            <img src="security.jpg" class="media" alt="Пост охраны">
             <div class="description-block">
                 <p>Круглосуточный контроль порядка. В экстренных случаях звоните по телефону: <b>+79214070305</b>.</p>
             </div>
@@ -218,7 +217,7 @@
 
         <div class="item">
             <h2>✨ Развлечения</h2>
-            <img src="entertainment.jpg" class="media" style="height: 280px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Развлечения">
+            <img src="entertainment.jpg" class="media" alt="Развлечения">
             <div class="description-block">
                 <p>Прогуляйтесь в <b>Орловском парке</b> или посетите панорамный ресторан <b>«Svoi»</b> для изысканного ужина.</p>
             </div>
@@ -226,7 +225,7 @@
 
         <div class="item">
             <h2>🚀 Возможности</h2>
-            <img src="options.jpg" class="media" style="height: 280px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Доп услуги">
+            <img src="options.jpg" class="media" alt="Доп услуги">
             <div class="description-block">
                 <p>Мы предлагаем дополнительный сервис: заказ свежих завтраков прямо в номер и профессиональный клининг по вашему запросу.</p>
             </div>
