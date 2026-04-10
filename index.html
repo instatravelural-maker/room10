@@ -55,7 +55,7 @@
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: minmax(100px, auto);
+            grid-auto-rows: 1fr; /* Выравнивание высоты всех блоков в ряду */
             gap: 20px;
         }
         .item {
@@ -82,7 +82,7 @@
             background: rgba(255,255,255,0.03); 
             border-radius: 22px; 
             border: 1px solid rgba(255,255,255,0.05);
-            flex-grow: 1;
+            flex-grow: 1; /* Растягивает блок, заполняя пустоту */
         }
         .description-block p { font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
 
@@ -107,7 +107,6 @@
         }
         
         .route-step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-        .route-step:last-child { margin-bottom: 0; }
         .route-step span { background: var(--primary-blue); color: white; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
 
         .info-pill {
@@ -139,7 +138,7 @@
         .footer-contacts a { color: #f8fafc; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
 
         @media (max-width: 850px) {
-            .bento-grid { grid-template-columns: 1fr; }
+            .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
             .wide, .full { grid-column: span 1; }
         }
     </style>
@@ -173,7 +172,6 @@
         <div class="item wide">
             <h2>🚗 Как добраться</h2>
             <img src="way.jpg" class="media" style="height: 280px; margin-bottom: 10px;" alt="Карта">
-            
             <div class="description-block">
                 <p style="margin-bottom: 15px;">Наш адрес: <b>Арцеуловская аллея, д. 19, корп. 1</b></p>
                 <div class="route-step">
@@ -182,7 +180,7 @@
                 </div>
                 <div class="route-step">
                     <span>2</span>
-                    <p>Если Вы едете к нам общественным транспортом от станции метро "Комендантский пр-кт", Вам нужен 127 автобус или 23 троллейбус От метро "Пионерская" на 127 автобусе Ехать до конечной остановки "Арцеуловская аллея" Далее 7 минут пешком и Вы на месте.</p>
+                    <p>Общественным транспортом: Автобус 127 или троллейбус 23 от м. "Комендантский пр-кт". Далее 7 минут пешком от конечной остановки.</p>
                 </div>
             </div>
             <a href="https://yandex.ru/maps/?ll=30.211941%2C60.039164&pt=30.211941%2C60.039164%2Cpm2rdm&z=17" target="_blank" class="maps-btn">Открыть в Картах 📍</a>
@@ -191,16 +189,12 @@
         <div class="item">
             <h2>🔐 Доступ</h2>
             <img src="intercom.jpg" class="media" style="height: 280px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Домофон">
-            
             <div class="info-pill">
                 <div><small style="color:#94a3b8;">ДОМОФОН</small><div class="code-val" id="c1">2631</div></div>
                 <button class="btn-copy" onclick="copy('c1')">ВЫЗОВ</button>
             </div>
-
             <div class="description-block">
-                <p>
-                    Вход в подъезд со стороны школы. Наберите на домофоне комбинацию цифр, дождитесь открытия двери. После входа в подъезд поверните в левую дверь, пройдите по ступенькам и в правую дверь до конца.
-                </p>
+                <p>Вход со стороны школы. Наберите код, дождитесь открытия. Поверните в левую дверь, далее по ступенькам в правую до конца.</p>
             </div>
         </div>
 
@@ -209,25 +203,16 @@
             <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 22px; overflow: hidden; border: 1px solid var(--glass-border); margin-top: 15px;">
                 <iframe src="https://kinescope.io/rvrHaiMd39fBvqmdknZfVL" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allowfullscreen></iframe>
             </div>
-            
             <div class="description-block">
-                <p>
-                    В квартире установлен электронный замок. Чтобы его открыть, <b>проведите рукой по верхней панели замка</b>. После включения панели введите код и <b>нажмите #</b>. 
-                </p>
-                <p style="margin-top: 10px;">
-                    Закрыть дверь при входе и выходе можно просто захлопнув дверь или захлопнуть и <b>поднять ручку двери кверху</b>. Открыть дверь со стороны квартиры: просто опустите ручку вниз.
-                </p>
+                <p>Проведите рукой по панели замка, введите код и нажмите <b>#</b>. Чтобы закрыть — просто захлопните дверь и поднимите ручку вверх.</p>
             </div>
         </div>
 
         <div class="item">
             <h2>🛡 Охрана</h2>
             <img src="security.jpg" class="media" style="height: 280px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Пост охраны">
-            
             <div class="description-block">
-                <p>
-                   Жилой комплекс находится под охраной. Охрана обеспечивает порядок на территории дома. В случае экстренных ситуаций, звоните нам по телефону <b>+79214070305</b>.
-                </p>
+                <p>Круглосуточный контроль порядка. В экстренных случаях звоните по телефону: <b>+79214070305</b>.</p>
             </div>
         </div>
 
@@ -235,17 +220,15 @@
             <h2>✨ Развлечения</h2>
             <img src="entertainment.jpg" class="media" style="height: 280px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Развлечения">
             <div class="description-block">
-                <p>
-                    Для приятного отдыха рекомендуем прогулку в <b>Орловском парке</b>, который находится в пешей доступности. Также обязательно посетите панорамный ресторан <b>«Svoi»</b> — отличное место для ужина с изысканной атмосферой.
-                </p>
+                <p>Прогуляйтесь в <b>Орловском парке</b> или посетите панорамный ресторан <b>«Svoi»</b> для изысканного ужина.</p>
             </div>
         </div>
 
         <div class="item">
             <h2>🚀 Возможности</h2>
-            <div class="media-placeholder">Фото доп. услуг</div>
+            <img src="options.jpg" class="media" style="height: 280px; width: 100%; object-fit: cover; border-radius: 20px;" alt="Доп услуги">
             <div class="description-block">
-                <p>Заказ завтраков и клининг по запросу.</p>
+                <p>Мы предлагаем дополнительный сервис: заказ свежих завтраков прямо в номер и профессиональный клининг по вашему запросу.</p>
             </div>
         </div>
 
