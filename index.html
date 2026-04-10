@@ -85,7 +85,14 @@
         }
         .description-block p { font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
 
+        /* Базовая высота для мобильных */
         .media { width: 100%; height: 280px; border-radius: 20px; object-fit: cover; border: 1px solid var(--glass-border); margin-top: 15px; }
+
+        /* Увеличенная высота для компьютеров, чтобы фото раскрывалось */
+        @media (min-width: 851px) {
+            .media { height: 450px; }
+        }
+
         .media-placeholder { width: 100%; height: 200px; border-radius: 20px; background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.1); margin-top: 15px; display: flex; align-items: center; justify-content: center; color: #475569; }
 
         .maps-btn {
@@ -153,12 +160,12 @@
         </div>
     </div>
 
-  <div class="item full" style="margin-bottom: 25px;">
+    <div class="item full" style="margin-bottom: 25px;">
         <h2>🗓 Прямое бронирование</h2>
         <p style="margin-bottom: 20px;">Забронируйте следующие даты проживания без комиссий площадок.</p>
         
         <div style="display: flex; justify-content: center; align-items: center; width: 100%; background: rgba(0,0,0,0.2); border-radius: 20px; padding: 20px 0; overflow: hidden;">
-            <div id="hr-widget" style="width: 95%; max-width: 900px; margin: 0 auto;">
+            <div id="hr-widget" style="width: 95%; max-width: 900px; margin: 0 auto; display: flex; justify-content: center;">
                 <script type="module" src="https://homereserve.ru/widget.js"></script>
                 <script type="module">
                     window.homereserve.initWidgetList({"token":"AeEVhV7jVU"})
@@ -234,7 +241,7 @@
             </div>
         </div>
 
-        <div class="item full" style="margin-bottom: 25px;">
+        <div class="item full">
             <h2>📝 Правила проживания</h2>
             <div class="description-block" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                 <p>• Заезд: с 14:00<br>• Выезд: до 12:00</p>
