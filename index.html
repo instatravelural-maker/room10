@@ -9,7 +9,6 @@
             --bg-dark: #020617;
             --primary-blue: #3b82f6;
             --accent-glow: rgba(59, 130, 246, 0.4);
-            /* Сделали стекло чуть светлее и насыщеннее */
             --glass-bg: rgba(30, 41, 59, 0.7); 
             --glass-border: rgba(255, 255, 255, 0.12);
             --text-main: #f8fafc;
@@ -56,7 +55,6 @@
         .logo-img { width: 70px; height: 70px; border-radius: 18px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.2); background: white; }
         .hero h1 { font-size: 2.8rem; margin: 0; font-weight: 800; letter-spacing: -2px; line-height: 1; }
 
-        /* Кнопка бронирования */
         .booking-card {
             background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             padding: 24px;
@@ -77,7 +75,6 @@
         }
         .booking-card:hover { transform: scale(1.02); box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6); }
 
-        /* Bento Grid */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -87,19 +84,13 @@
 
         .item {
             background: var(--glass-bg);
-            backdrop-filter: blur(25px); /* Усиленное размытие */
+            backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border-radius: 30px;
             padding: 30px;
             border: 1px solid var(--glass-border);
-            /* Тень для объема */
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: 0.3s ease;
-        }
-        .item:hover { 
-            background: rgba(51, 65, 85, 0.8); 
-            border-color: rgba(255,255,255,0.3);
-            transform: translateY(-5px);
         }
 
         .wide { grid-column: span 2; }
@@ -110,7 +101,10 @@
 
         .media { width: 100%; border-radius: 20px; object-fit: cover; border: 1px solid var(--glass-border); margin-top: 15px; }
         
-        /* Информационные плашки внутри блоков */
+        /* Стили для описания пути */
+        .route-step { display: flex; align-items: flex-start; gap: 12px; margin-top: 15px; }
+        .route-step span { background: var(--primary-blue); color: white; min-width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
+
         .info-pill {
             background: rgba(0,0,0,0.4);
             border-radius: 20px;
@@ -128,9 +122,7 @@
             padding: 10px 18px; border-radius: 14px; cursor: pointer; font-weight: 700; font-size: 0.75rem;
             transition: 0.2s;
         }
-        .btn-copy:hover { transform: scale(1.05); background: #60a5fa; color: white; }
 
-        /* Правила */
         .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
         .rule-tag { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 22px; text-align: center; border: 1px solid var(--glass-border); }
 
@@ -139,8 +131,6 @@
         @media (max-width: 850px) {
             .bento-grid { grid-template-columns: 1fr; }
             .wide, .tall { grid-column: span 1; grid-row: span 1; }
-            .hero { height: 280px; padding: 25px; }
-            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -161,47 +151,56 @@
 
     <div class="bento-grid">
         
-        <div class="item wide">
-            <h2>🔐 Коды доступа</h2>
-            <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
-                <div class="info-pill">
-                    <div><small style="color:#94a3b8; font-weight: 600;">ДОМОФОН</small><div class="code-val" id="c1">#4455</div></div>
-                    <button class="btn-copy" onclick="copy('c1')">КОПИРОВАТЬ</button>
-                </div>
-                <div class="info-pill">
-                    <div><small style="color:#94a3b8; font-weight: 600;">КЕЙБОКС</small><div class="code-val" id="c2">1234</div></div>
-                    <button class="btn-copy" onclick="copy('c2')">КОПИРОВАТЬ</button>
-                </div>
+        <div class="item wide tall">
+            <h2>🚗 Как добраться</h2>
+            <img src="way.jpg" class="media" style="height: 350px; margin-bottom: 20px;" alt="Вид здания">
+            
+            <p>Наш адрес: <b>ул. Большая Морская, д. 10</b> (введите в навигаторе).</p>
+            
+            <div class="route-step">
+                <span>1</span>
+                <p>Если вы на авто: заезжайте в арку с правой стороны здания (ворота открываются автоматически).</p>
+            </div>
+            <div class="route-step">
+                <span>2</span>
+                <p>Пешком: вход через центральную калитку со двора. Сразу после арки поверните налево к парадной №3.</p>
+            </div>
+            
+            <a href="https://yandex.ru/maps/-/CCU9Y-Xp~A" target="_blank" style="display: inline-block; margin-top: 25px; padding: 15px 25px; background: rgba(255,255,255,0.1); border-radius: 18px; color: white; text-decoration: none; font-weight: bold; border: 1px solid var(--glass-border);">Открыть в Картах 📍</a>
+        </div>
+
+        <div class="item">
+            <h2>🔐 Доступ</h2>
+            <div class="info-pill">
+                <div><small style="color:#94a3b8;">ДОМОФОН</small><div class="code-val" id="c1">#4455</div></div>
+                <button class="btn-copy" onclick="copy('c1')">COPY</button>
+            </div>
+            <div class="info-pill">
+                <div><small style="color:#94a3b8;">КЕЙБОКС</small><div class="code-val" id="c2">1234</div></div>
+                <button class="btn-copy" onclick="copy('c2')">COPY</button>
             </div>
         </div>
 
-        <div class="item tall">
-            <h2>🚗 Локация</h2>
-            <p>Центральный район. Безопасный двор с видеонаблюдением и парковкой.</p>
-            <img src="way.jpg" class="media" style="height: 310px;">
-        </div>
-
         <div class="item wide">
-            <h2>🔑 Инструкция к замку</h2>
+            <h2>🔑 Видео-инструкция</h2>
             <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 22px; overflow: hidden; border: 1px solid var(--glass-border); margin-top: 15px;">
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
 
-        <div class="item wide">
-            <h2>📝 Правила дома</h2>
+        <div class="item">
+            <h2>📝 Правила</h2>
             <div class="rules-grid">
-                <div class="rule-tag">🚭<br><small style="color:white; font-weight: 600;">БЕЗ КУРЕНИЯ</small></div>
-                <div class="rule-tag">🔇<br><small style="color:white; font-weight: 600;">ТИШИНА 22:00</small></div>
-                <div class="rule-tag">🚫<br><small style="color:white; font-weight: 600;">БЕЗ ВЕЧЕРИНОК</small></div>
-                <div class="rule-tag">🐾<br><small style="color:white; font-weight: 600;">БЕЗ ЖИВОТНЫХ</small></div>
+                <div class="rule-tag">🚭<br><small>NO SMOKE</small></div>
+                <div class="rule-tag">🔇<br><small>QUIET</small></div>
             </div>
+            <p style="margin-top: 15px; font-size: 0.9rem;">Заезд с 14:00<br>Выезд до 12:00</p>
         </div>
 
         <div class="item">
-            <h2>📞 Поддержка</h2>
-            <p>Ваш персональный менеджер всегда на связи.</p>
-            <a href="tel:+79990000000" style="display: inline-block; margin-top: 25px; color: #60a5fa; font-weight: 800; text-decoration: none; border-bottom: 2px solid #60a5fa; padding-bottom: 4px;">СВЯЗАТЬСЯ →</a>
+            <h2>📞 Concierge</h2>
+            <p>Мы на связи в WhatsApp 24/7.</p>
+            <a href="tel:+79990000000" style="display: inline-block; margin-top: 25px; color: #60a5fa; font-weight: 800; text-decoration: none; border-bottom: 2px solid #60a5fa;">СВЯЗАТЬСЯ →</a>
         </div>
 
     </div>
@@ -216,15 +215,8 @@
         const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text);
         const btn = event.target;
-        const oldText = btn.innerText;
-        btn.innerText = 'УСПЕШНО';
-        btn.style.background = '#3b82f6';
-        btn.style.color = 'white';
-        setTimeout(() => {
-            btn.innerText = oldText;
-            btn.style.background = 'white';
-            btn.style.color = 'black';
-        }, 1200);
+        btn.innerText = 'DONE';
+        setTimeout(() => { btn.innerText = 'COPY'; }, 1200);
     }
 </script>
 
