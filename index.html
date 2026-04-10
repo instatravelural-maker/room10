@@ -3,185 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Инструкция по заселению | GidKvartira</title>
+    <title>Гид по проживанию | GidKvartira</title>
     <style>
         :root {
-            --primary: #2563eb; /* Синий акцент */
-            --bg: #f8fafc;
-            --text: #1e293b;
+            --primary: #2563eb;
+            --secondary: #059669;
+            --bg: #f1f5f9;
             --card-bg: #ffffff;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --text: #1e293b;
         }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); margin: 0; padding: 15px; color: var(--text); }
+        .main-container { max-width: 1100px; margin: 0 auto; }
+
+        /* Шапка */
+        .header-banner {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; background-position: center; height: 180px; border-radius: 20px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; margin-bottom: 25px;
         }
 
-        .container {
-            max-width: 500px; /* Идеально для мобильных и узких окон ПК */
-            margin: 0 auto;
-            background: var(--card-bg);
-            min-height: 100vh;
-            padding-bottom: 40px;
+        /* Сетка блоков */
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
+
+        .card { background: var(--card-bg); padding: 20px; border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); height: fit-content; }
+        h2 { font-size: 1.15rem; margin-top: 0; color: var(--primary); border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; margin-bottom: 15px; }
+
+        .data-row { background: #f8fafc; border: 1px solid #e2e8f0; padding: 12px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .btn-copy { background: var(--primary); color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 12px; }
+
+        .img-box { width: 100%; border-radius: 12px; margin: 10px 0; object-fit: cover; height: 180px; }
+        .video-box { width: 100%; border-radius: 12px; background: #000; height: 200px; margin-top: 10px; }
+
+        /* Кнопка бронирования */
+        .booking-btn {
+            display: block; width: 100%; background: var(--secondary); color: white; text-align: center; 
+            padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-bottom: 20px;
         }
 
-        /* Шапка с фото */
-        .header {
-            position: relative;
-            height: 220px;
-            overflow: hidden;
-        }
-        .header img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .header-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            padding: 20px;
-            color: white;
-        }
+        /* Подвал */
+        footer { margin-top: 40px; padding: 20px; text-align: center; border-top: 1px solid #cbd5e1; color: #64748b; }
+        footer a { color: var(--primary); text-decoration: none; margin: 0 10px; }
 
-        /* Стили блоков */
-        .section {
-            padding: 20px;
-            border-bottom: 8px solid var(--bg);
-        }
-        h2 { font-size: 18px; margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 8px; }
-        p { font-size: 15px; margin: 5px 0; color: #475569; }
-
-        /* Карточки с кодами (выровнены по размеру) */
-        .data-card {
-            background: #f1f5f9;
-            border-radius: 12px;
-            padding: 16px;
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid #e2e8f0;
-        }
-        .data-info b { display: block; font-size: 12px; color: #64748b; text-transform: uppercase; }
-        .data-value { font-size: 20px; font-weight: 700; letter-spacing: 1px; }
-
-        .btn-copy {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.1s;
-            font-size: 13px;
-        }
-        .btn-copy:active { transform: scale(0.95); }
-
-        /* Изображения в тексте */
-        .instruction-img {
-            width: 100%;
-            border-radius: 12px;
-            margin-top: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        /* Список правил */
-        .rules-list { padding-left: 20px; }
-        .rules-list li { margin-bottom: 8px; font-size: 14px; }
-
-        @media (max-width: 500px) {
-            .container { width: 100%; }
-        }
+        @media (max-width: 600px) { .grid-layout { grid-template-columns: 1fr; } .header-banner { height: 140px; } }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="Квартира">
-        <div class="header-overlay">
-            <h1 style="margin:0; font-size: 22px;">Добро пожаловать!</h1>
-            <p style="color: #cbd5e1; margin: 0;">Инструкция по заезду</p>
-        </div>
+<div class="main-container">
+    <div class="header-banner">
+        <h1>GidKvartira</h1>
+        <p>Ваш комфорт — наш приоритет</p>
     </div>
 
-    <div class="section">
-        <h2>📍 Адрес и локация</h2>
-        <p><b>г. Москва, ул. Примерная, д. 15, кв. 102</b></p>
-        <p>Этаж 12, из лифта направо до конца коридора.</p>
-    </div>
+    <a href="ССЫЛКА_НА_ТВОЙ_МОДУЛЬ" class="booking-btn">📅 Забронировать снова со скидкой 10%</a>
 
-    <div class="section">
-        <h2>🔐 Доступ в квартиру</h2>
+    <div class="grid-layout">
         
-        <div class="data-card">
-            <div class="data-info">
-                <b>Код от домофона</b>
-                <div class="data-value" id="code-dom">#1234</div>
-            </div>
-            <button class="btn-copy" onclick="copy('code-dom')">Копировать</button>
+        <div class="card">
+            <h2>🔐 Доступ и Wi-Fi</h2>
+            <div class="data-row"><div><small>Домофон</small><br><b>#1234</b></div><button class="btn-copy" onclick="copy('#1234')">Копировать</button></div>
+            <div class="data-row"><div><small>Кейбокс</small><br><b>5566</b></div><button class="btn-copy" onclick="copy('5566')">Копировать</button></div>
+            <div class="data-row"><div><small>Wi-Fi</small><br><b>Pass123</b></div><button class="btn-copy" onclick="copy('Pass123')">Копировать</button></div>
         </div>
 
-        <div class="data-card" style="margin-top:10px;">
-            <div class="data-info">
-                <b>Код от кейбокса</b>
-                <div class="data-value" id="code-key">5566</div>
-            </div>
-            <button class="btn-copy" onclick="copy('code-key')">Копировать</button>
+        <div class="card">
+            <h2>🚗 Как добраться</h2>
+            <p>От метро "Примерная" 5 минут пешком. Вход через калитку с кодом 111.</p>
+            <img src="https://via.placeholder.com/400x200?text=Карта+проезда" class="img-box">
         </div>
-    </div>
 
-    <div class="section">
-        <h2>🌐 Интернет и Wi-Fi</h2>
-        <div class="data-card">
-            <div class="data-info">
-                <b>Название и пароль</b>
-                <div class="data-value" id="wifi-pass">Apart_Guest / 88889999</div>
-            </div>
-            <button class="btn-copy" onclick="copy('wifi-pass')">Копировать</button>
+        <div class="card">
+            <h2>🚪 Вход в здание</h2>
+            <p>Используйте магнитный ключ или введите код на панели справа от двери.</p>
+            <img src="https://via.placeholder.com/400x200?text=Фото+входа" class="img-box">
         </div>
+
+        <div class="card">
+            <h2>🔑 Как открыть замок</h2>
+            <p>Поверните ручку до упора вправо, затем на себя.</p>
+            <iframe class="video-box" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="card">
+            <h2>🛡️ Безопасность и Охрана</h2>
+            <p>Территория под видеонаблюдением. Пост охраны в первом корпусе.</p>
+            <img src="https://via.placeholder.com/400x200?text=Пост+охраны" class="img-box">
+        </div>
+
+        <div class="card">
+            <h2>☕ Развлечения рядом</h2>
+            <p>Лучший кофе в "Кофемании" за углом. Кинотеатр в ТЦ "Мир" (500м).</p>
+            <img src="https://via.placeholder.com/400x200?text=Кафе+рядом" class="img-box">
+        </div>
+
+        <div class="card">
+            <h2>✨ Дополнительно</h2>
+            <p>В шкафу есть гладильная доска и отпариватель. Доп. белье в комоде.</p>
+            <img src="https://via.placeholder.com/400x200?text=Удобства" class="img-box">
+        </div>
+
+        <div class="card">
+            <h2>📜 Правила дома</h2>
+            <ul style="padding-left: 20px; font-size: 14px;">
+                <li>Без вечеринок и шума после 22:00.</li>
+                <li>Не курить (установлены датчики).</li>
+                <li>Берегите имущество как свое.</li>
+            </ul>
+        </div>
+
     </div>
 
-    <div class="section">
-        <h2>📸 Как найти ключ</h2>
-        <p>Кейбокс расположен слева от входной двери на уровне глаз.</p>
-        <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=800&q=80" class="instruction-img">
-    </div>
-
-    <div class="section">
-        <h2>📝 Правила проживания</h2>
-        <ul class="rules-list">
-            <li>Курение в квартире строго запрещено.</li>
-            <li>Соблюдайте тишину с 22:00 до 08:00.</li>
-            <li>Выезд до 12:00, заезд после 14:00.</li>
-        </ul>
-    </div>
+    <footer>
+        <p>Нужна помощь? Свяжитесь с нами:</p>
+        <p>
+            📞 <a href="tel:+79991234567">+7 (999) 123-45-67</a> | 
+            ✉️ <a href="mailto:info@mail.ru">info@mail.ru</a>
+        </p>
+        <p>© 2026 GidKvartira — Сервис комфортного заселения</p>
+    </footer>
 </div>
 
 <script>
-    function copy(id) {
-        const text = document.getElementById(id).innerText.split(' / ')[0]; // Копирует пароль, если есть разделитель
+    function copy(text) {
         navigator.clipboard.writeText(text);
-        
-        // Визуальный отклик кнопки
-        const btn = event.target;
-        const originalText = btn.innerText;
-        btn.innerText = 'Скопировано';
-        btn.style.background = '#059669';
-        
-        setTimeout(() => {
-            btn.innerText = originalText;
-            btn.style.background = '#2563eb';
-        }, 1500);
+        alert('Скопировано: ' + text);
     }
 </script>
 
