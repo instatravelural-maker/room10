@@ -9,7 +9,6 @@
             --bg-dark: #020617;
             --primary-blue: #3b82f6;
             --accent-glow: rgba(59, 130, 246, 0.4);
-            /* Оставляем блоки светлыми и контрастными */
             --glass-bg: rgba(30, 41, 59, 0.75); 
             --glass-border: rgba(255, 255, 255, 0.15);
             --text-main: #f8fafc;
@@ -44,47 +43,23 @@
             padding: 40px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
-
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
             background: linear-gradient(180deg, transparent 20%, rgba(2, 6, 23, 0.95) 100%);
         }
-
         .hero-content { position: relative; z-index: 2; }
         .logo-img { width: 70px; height: 70px; border-radius: 18px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.2); background: white; }
         .hero h1 { font-size: 2.8rem; margin: 0; font-weight: 800; letter-spacing: -2px; line-height: 1; }
 
-        /* Booking Card */
-        .booking-card {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            padding: 24px;
-            border-radius: 24px;
-            text-align: center;
-            margin-bottom: 30px;
-            text-decoration: none;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            font-weight: 700;
-            font-size: 1.3rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px var(--accent-glow);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .booking-card:hover { transform: scale(1.02); box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6); }
-
-        /* Grid */
+        /* Bento Grid */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: minmax(180px, auto);
             gap: 20px;
         }
-
         .item {
             background: var(--glass-bg);
             backdrop-filter: blur(25px);
@@ -95,23 +70,24 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: 0.3s ease;
         }
-
         .wide { grid-column: span 2; }
+        .full { grid-column: span 3; }
         .tall { grid-row: span 2; }
 
         h2 { font-size: 0.9rem; color: #60a5fa; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 20px 0; font-weight: 800; }
         p { color: var(--text-dim); line-height: 1.6; margin: 0; font-size: 1rem; }
 
         .media { width: 100%; border-radius: 20px; object-fit: cover; border: 1px solid var(--glass-border); margin-top: 15px; }
+        .media-placeholder { width: 100%; height: 200px; border-radius: 20px; background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.1); margin-top: 15px; display: flex; align-items: center; justify-content: center; color: #475569; }
 
-        /* Дизайн кнопки как на присланной картинке */
+        /* Кнопка Карт */
         .maps-btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
             margin-top: 25px;
             padding: 15px 25px;
-            background: rgba(15, 23, 42, 0.6); /* Глубокий темный фон */
+            background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 18px;
             color: white;
@@ -119,11 +95,6 @@
             font-weight: 600;
             font-size: 0.95rem;
             transition: all 0.3s ease;
-        }
-        .maps-btn:hover {
-            background: rgba(30, 41, 59, 0.9);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
         }
         
         .route-step { display: flex; align-items: flex-start; gap: 12px; margin-top: 15px; }
@@ -143,18 +114,24 @@
         
         .btn-copy { 
             background: white; color: black; border: none; 
-            padding: 10px 18px; border-radius: 14px; cursor: pointer; font-weight: 700; font-size: 0.75rem;
+            padding: 10px 18px; border-radius: 14px; cursor: pointer; font-weight: 700;
             transition: 0.2s;
         }
 
-        .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
-        .rule-tag { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 22px; text-align: center; border: 1px solid var(--glass-border); }
-
-        footer { padding: 60px 0; text-align: center; color: #475569; }
+        /* Footer */
+        footer { 
+            padding: 80px 0 40px; 
+            text-align: center; 
+            color: #475569; 
+            border-top: 1px solid var(--glass-border);
+            margin-top: 40px;
+        }
+        .footer-contacts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
+        .footer-contacts a { color: #f8fafc; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
 
         @media (max-width: 850px) {
             .bento-grid { grid-template-columns: 1fr; }
-            .wide, .tall { grid-column: span 1; grid-row: span 1; }
+            .wide, .tall, .full { grid-column: span 1; grid-row: span 1; }
         }
     </style>
 </head>
@@ -169,34 +146,35 @@
         </div>
     </div>
 
-    <a href="https://homereserve.ru/AeEVhV7jVU" class="booking-card">
-        Забронировать проживание <span>→</span>
-    </a>
+    <div class="item full" style="margin-bottom: 25px;">
+        <h2>🗓 Прямое бронирование</h2>
+        <p>Забронируйте следующие даты проживания без комиссий площадок.</p>
+        <div class="media-placeholder">
+            <p>Модуль бронирования (Iframe/Widget)</p>
+        </div>
+        <a href="https://homereserve.ru/AeEVhV7jVU" class="maps-btn" style="width: 100%; justify-content: center; box-sizing: border-box; background: var(--primary-blue); margin-top: 20px;">Забронировать сейчас</a>
+    </div>
 
     <div class="bento-grid">
         
         <div class="item wide tall">
             <h2>🚗 Как добраться</h2>
-            <img src="way.jpg" class="media" style="height: 350px; margin-bottom: 20px;" alt="Вид здания">
-            
+            <img src="для ии 14.jpg" class="media" style="height: 350px; margin-bottom: 20px;" alt="Вид здания">
             <p>Наш адрес: <b>Арцеуловская аллея, д. 19, корп. 1</b></p>
-            
             <div class="route-step">
                 <span>1</span>
-                <p>Личным транспортом: 14 подъезд (дом-свечка первый от школы). Бесплатная парковка возле дома.</p>
+                <p>Личным транспортом: 14 подъезд (дом-свечка). Парковка возле дома.</p>
             </div>
             <div class="route-step">
                 <span>2</span>
-                <p>От м. "Комендантский пр-кт": авт. 127 или трол. 23. От м. "Пионерская": авт. 127. До конечной "Арцеуловская аллея", далее 7 минут пешком.</p>
+                <p>От м. Комендантский пр-кт: авт. 127, трол. 23. До конечной остановки.</p>
             </div>
-            
-            <a href="https://yandex.ru/maps/?ll=30.211941%2C60.039164&pt=30.211941%2C60.039164%2Cpm2rdm&z=17" target="_blank" class="maps-btn">
-                Открыть в Картах 📍
-            </a>
+            <a href="https://yandex.ru/maps/?ll=30.211941%2C60.039164&pt=30.211941%2C60.039164%2Cpm2rdm&z=17" target="_blank" class="maps-btn">Открыть в Картах 📍</a>
         </div>
 
         <div class="item">
             <h2>🔐 Доступ</h2>
+            <div class="media-placeholder" style="height: 120px;">Фото доступа</div>
             <div class="info-pill">
                 <div><small style="color:#94a3b8;">ДОМОФОН</small><div class="code-val" id="c1">#4455</div></div>
                 <button class="btn-copy" onclick="copy('c1')">COPY</button>
@@ -208,30 +186,48 @@
         </div>
 
         <div class="item wide">
-            <h2>🔑 Видео-инструкция</h2>
+            <h2>🔑 Как открыть квартиру</h2>
             <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 22px; overflow: hidden; border: 1px solid var(--glass-border); margin-top: 15px;">
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allowfullscreen></iframe>
             </div>
+            <p style="margin-top: 15px;">Введите код на электронном замке и закройте за собой дверь до щелчка.</p>
         </div>
 
         <div class="item">
-            <h2>📝 Правила</h2>
-            <div class="rules-grid">
-                <div class="rule-tag">🚭<br><small>NO SMOKE</small></div>
-                <div class="rule-tag">🔇<br><small>QUIET</small></div>
+            <h2>🛡 Охрана</h2>
+            <div class="media-placeholder">Фото охраны</div>
+            <p style="margin-top: 15px;">Круглосуточное видеонаблюдение. Пост охраны расположен в 1 подъезде. В экстренных ситуациях используйте кнопку вызова.</p>
+        </div>
+
+        <div class="item">
+            <h2>✨ Развлечения</h2>
+            <div class="media-placeholder">Фото досуга</div>
+            <p style="margin-top: 15px;">Рядом находится Орловский парк и торговый центр. Рекомендуем посетить ресторан «Svoi» в 5 минутах ходьбы.</p>
+        </div>
+
+        <div class="item">
+            <h2>🚀 Возможности</h2>
+            <div class="media-placeholder">Фото доп. услуг</div>
+            <p style="margin-top: 15px;">Доступен заказ завтраков, клининг по запросу и аренда зарядных устройств.</p>
+        </div>
+
+        <div class="item wide">
+            <h2>📝 Правила проживания</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                <p>• Заезд: с 14:00<br>• Выезд: до 12:00</p>
+                <p>• Курение запрещено<br>• Режим тишины: 22-08</p>
             </div>
-            <p style="margin-top: 15px; font-size: 0.9rem;">Заезд с 14:00<br>Выезд до 12:00</p>
-        </div>
-
-        <div class="item">
-            <h2>📞 Concierge</h2>
-            <p>Мы на связи в WhatsApp 24/7.</p>
-            <a href="tel:+79990000000" style="display: inline-block; margin-top: 25px; color: #60a5fa; font-weight: 800; text-decoration: none; border-bottom: 2px solid #60a5fa;">СВЯЗАТЬСЯ →</a>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #94a3b8;">Мы ценим ваш комфорт и просим соблюдать правила дома для общего спокойствия.</p>
         </div>
 
     </div>
 
     <footer>
+        <div class="footer-contacts">
+            <a href="tel:+79990000000">📞 +7 (999) 000-00-00</a>
+            <a href="mailto:welcome@svoidni.ru">✉️ welcome@svoidni.ru</a>
+            <p>📍 Арцеуловская аллея, 19/1</p>
+        </div>
         <p style="font-size: 0.8rem; letter-spacing: 2px;">© 2026 SVOI DNI. EXCELLENCE IN EVERY DETAIL.</p>
     </footer>
 </div>
