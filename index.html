@@ -15,15 +15,15 @@
             --hyatt-white: #ffffff;
             --hyatt-gray: #707070;
             --bg-light: #f4f7f9;
-            --border-color: rgba(255,255,255,0.1);
+            --border-color: rgba(0,0,0,0.05);
             --card-radius: 20px;
         }
 
         body {
-            background: linear-gradient(135deg, #001b33 0%, #000c17 100%);
+            background: linear-gradient(135deg, #eef2f5 0%, #f4f7f9 100%);
             background-attachment: fixed;
             font-family: 'Inter', -apple-system, sans-serif;
-            color: var(--hyatt-white);
+            color: var(--hyatt-navy);
             margin: 0;
             padding: 0;
             line-height: 1.6;
@@ -41,13 +41,13 @@
             align-items: flex-end;
             padding: 60px;
             border-radius: var(--card-radius);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,27,51,0.15);
         }
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(0,27,51,0.8) 0%, transparent 100%);
+            background: linear-gradient(0deg, rgba(0,27,51,0.7) 0%, transparent 100%);
         }
         .hero-content { position: relative; z-index: 2; color: white; width: 100%; }
 
@@ -78,7 +78,6 @@
             margin: 0 0 20px 0; 
             font-weight: 400; 
             line-height: 1.1; 
-            color: white;
         }
 
         .quick-actions {
@@ -117,19 +116,19 @@
         }
 
         .item {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--hyatt-white);
+            background: var(--hyatt-white);
+            color: var(--hyatt-navy);
             padding: 40px;
             display: flex;
             flex-direction: column;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             border-radius: var(--card-radius);
             border: 1px solid var(--border-color);
-            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
         }
         .item:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 40px rgba(0,27,51,0.08);
             border-color: var(--hyatt-gold);
         }
 
@@ -139,7 +138,7 @@
         h2 { 
             font-family: 'Playfair Display', serif;
             font-size: 1.4rem; 
-            color: var(--hyatt-white); 
+            color: var(--hyatt-navy); 
             margin: 0 0 20px 0; 
             font-weight: 700;
             display: flex;
@@ -168,7 +167,7 @@
             overflow: hidden;
             margin-top: 10px;
             border-radius: 12px;
-            background: #222;
+            background: #eee;
             position: relative;
         }
         .media-wrapper img { width: 100%; height: 100%; object-fit: cover; }
@@ -178,7 +177,7 @@
             margin-top: 25px; 
             flex-grow: 1;
         }
-        .description-block p { font-size: 0.95rem; color: var(--hyatt-white); line-height: 1.7; white-space: pre-line; margin: 0; }
+        .description-block p { font-size: 0.95rem; color: #445; line-height: 1.7; white-space: pre-line; margin: 0; }
 
         .route-step { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 15px; }
         .route-step span { 
@@ -190,7 +189,7 @@
         }
 
         .info-pill-centered {
-            background: rgba(255,255,255,0.05);
+            background: #f8fafc;
             padding: 25px;
             display: flex; 
             flex-direction: column;
@@ -202,14 +201,14 @@
             text-align: center;
         }
 
-        .code-val { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--hyatt-white); font-weight: 700; line-height: 1; margin-top: 5px; }
+        .code-val { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--hyatt-navy); font-weight: 700; line-height: 1; margin-top: 5px; }
         
         .btn-copy { 
-            background: var(--hyatt-gold); color: white; border: none; padding: 10px 20px; 
+            background: var(--hyatt-navy); color: white; border: none; padding: 10px 20px; 
             cursor: pointer; font-weight: 600; border-radius: 8px; transition: 0.3s; font-size: 0.7rem;
             letter-spacing: 1px;
         }
-        .btn-copy:hover { background: white; color: var(--hyatt-navy); }
+        .btn-copy:hover { background: var(--hyatt-gold); }
 
         .maps-btn {
             display: inline-flex; align-items: center; justify-content: center;
@@ -218,7 +217,7 @@
             transition: 0.3s; text-transform: uppercase; font-size: 0.8rem;
             gap: 10px;
         }
-        .maps-btn:hover { background: white; color: var(--hyatt-navy); }
+        .maps-btn:hover { background: var(--hyatt-navy); }
 
         footer { 
             margin-top: 60px;
@@ -226,11 +225,12 @@
         }
         
         .footer-card {
-            background: rgba(255,255,255,0.05);
+            background: var(--hyatt-white);
             border-radius: var(--card-radius);
             border: 1px solid var(--border-color);
             padding: 50px 20px;
             text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
         }
 
         .footer-contacts {
@@ -244,13 +244,13 @@
         .footer-contacts a:first-child {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
-            color: white;
+            color: var(--hyatt-navy);
             text-decoration: none;
             font-weight: 700;
         }
 
         .footer-address {
-            color: white;
+            color: var(--hyatt-navy);
             font-size: 1rem;
             font-weight: 400;
             margin-top: 5px;
@@ -280,14 +280,13 @@
 
         .footer-copyright { 
             font-size: 0.65rem; 
-            color: var(--hyatt-white); 
+            color: var(--hyatt-gray); 
             letter-spacing: 3px; 
             text-transform: uppercase;
             padding-top: 30px;
             border-top: 1px solid var(--border-color);
             max-width: 500px;
             margin: 0 auto;
-            opacity: 0.6;
         }
 
         .rule-header { display: flex; align-items: center; gap: 8px; color: var(--hyatt-gold); font-weight: 700; margin-bottom: 8px; font-size: 0.85rem; }
@@ -322,7 +321,7 @@
 
         <div class="hero-content">
             <img src="logo.png" class="logo-img" alt="Logo">
-            <p style="color: var(--hyatt-gold); font-weight: 600; margin-bottom: 10px; letter-spacing: 2px; font-size: 0.8rem;">СВОИ ДНИ • КОНСЬЕРЖ</p>
+            <p style="color: white; font-weight: 600; margin-bottom: 10px; letter-spacing: 2px; font-size: 0.8rem;">СВОИ ДНИ • КОНСЬЕРЖ</p>
             <h1>Добро<br>пожаловать!</h1>
             
             <div class="quick-actions">
@@ -338,8 +337,8 @@
 
     <div class="item full" style="margin-bottom: 30px;">
         <h2><i data-lucide="calendar-check"></i> Прямое бронирование</h2>
-        <p style="margin-bottom: 25px; color: white;">Забронируйте следующие даты проживания без комиссий площадок.</p>
-        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; border: 1px solid var(--border-color); min-height: 100px;">
+        <p style="margin-bottom: 25px; color: #444;">Забронируйте следующие даты проживания без комиссий площадок.</p>
+        <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid var(--border-color); min-height: 100px;">
             <div id="hr-widget">
                 <script type="module" src="https://homereserve.ru/widget.js"></script>
                 <script type="module">
@@ -355,7 +354,7 @@
             <h2><i data-lucide="map-pin"></i> Как добраться</h2>
             <div class="media-wrapper"><img src="way.jpg" alt="Карта"></div>
             <div class="description-block">
-                <p style="margin-bottom: 15px; color: white; font-weight: 600;">Наш адрес: Арцеуловская аллея, д. 19, корп. 1</p>
+                <p style="margin-bottom: 15px; color: var(--hyatt-navy); font-weight: 600;">Наш адрес: Арцеуловская аллея, д. 19, корп. 1</p>
                 <div class="route-step">
                     <span>1</span>
                     <p>Личным транспортом: Арцеуловская аллея, д. 19, 14 подъезд (дом-свечка первый от школы)
@@ -376,7 +375,7 @@
             <h2><i data-lucide="key-round"></i> Доступ</h2>
             <div class="media-wrapper"><img src="intercom.jpg" alt="Домофон"></div>
             <div class="info-pill-centered">
-                <small style="color:var(--hyatt-white); opacity: 0.6; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.65rem;">Домофон</small>
+                <small style="color:var(--hyatt-gray); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.65rem;">Домофон</small>
                 <div class="code-val">2631</div>
             </div>
             <div class="description-block">
@@ -433,23 +432,23 @@
         <div class="item full">
             <h2><i data-lucide="list-checks"></i> Правила проживания</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-top: 10px;">
-                <div class="description-block" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                <div class="description-block" style="border-top: 1px solid #eee; padding-top: 15px;">
                     <div class="rule-header"><i data-lucide="volume-x"></i> ТИШИНА</div>
                     <p style="font-size: 0.85rem;">С 22:00 до 08:00. Нарушение ведет к выселению.</p>
                 </div>
-                <div class="description-block" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                <div class="description-block" style="border-top: 1px solid #eee; padding-top: 15px;">
                     <div class="rule-header"><i data-lucide="cigarette-off"></i> КУРЕНИЕ</div>
                     <p style="font-size: 0.85rem;">Строго запрещено в квартире и на балконе. Штраф — залог.</p>
                 </div>
-                <div class="description-block" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                <div class="description-block" style="border-top: 1px solid #eee; padding-top: 15px;">
                     <div class="rule-header"><i data-lucide="dog"></i> ЖИВОТНЫЕ</div>
                     <p style="font-size: 0.85rem;">Без животных. Пожалуйста, выносите мусор в баки во дворе.</p>
                 </div>
-                <div class="description-block" style="border-top: 2px solid var(--hyatt-gold); padding-top: 15px;">
-                    <div class="rule-header" style="color: white;"><i data-lucide="wifi"></i> WI-FI</div>
+                <div class="description-block" style="border-top: 2px solid var(--hyatt-navy); padding-top: 15px;">
+                    <div class="rule-header" style="color: var(--hyatt-navy);"><i data-lucide="wifi"></i> WI-FI</div>
                     <p style="font-size: 0.85rem; margin-bottom: 12px;">Сеть: <b>Арцеулка 5G</b></p>
-                    <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color);">
-                        <span id="wifi" style="color: white; font-family: monospace; font-weight: 700;">1Q194Aws</span>
+                    <div style="display: flex; align-items: center; justify-content: space-between; background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color);">
+                        <span id="wifi" style="color: var(--hyatt-navy); font-family: monospace; font-weight: 700;">1Q194Aws</span>
                         <button onclick="copy('wifi', event)" class="btn-copy" style="padding: 6px 12px; font-size: 0.6rem;">КОПИРОВАТЬ</button>
                     </div>
                 </div>
@@ -458,33 +457,33 @@
 
         <div class="item full">
             <h2><i data-lucide="utensils"></i> Где перекусить поблизости</h2>
-            <p style="margin-bottom: 25px; color: white; opacity: 0.8;">Лучшие места с высоким рейтингом в шаговой доступности от вас.</p>
+            <p style="margin-bottom: 25px; color: var(--hyatt-gray);">Лучшие места с высоким рейтингом в шаговой доступности от вас.</p>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
                 
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 18px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="background: var(--hyatt-white); padding: 30px; border-radius: 18px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div class="rule-header"><i data-lucide="coffee"></i> ПЕКАРНЯ И КОФЕ</div>
-                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: white;">Хлебник</h3>
-                        <p style="font-size: 0.9rem; color: white; margin-bottom: 15px;">Свежая выпечка, ароматный хлеб и горячий кофе. Отличное место для завтрака или перекуса.<br><br><b>📍 Комендантский пр., 64 к1 (9 мин. пешком)</b></p>
+                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.3rem;">Хлебник</h3>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Свежая выпечка, ароматный хлеб и горячий кофе. Отличное место для завтрака или перекуса.<br><br><b>📍 Комендантский пр., 64 к1 (9 мин. пешком)</b></p>
                     </div>
                     <a href="https://yandex.ru/maps/?rtext=60.039164,30.211941~60.03837003690155,30.22196178817496&rtt=pd" target="_blank" class="maps-btn" style="margin-top: 10px;">МАРШРУТ <i data-lucide="navigation-2" style="width:14px; height:14px; color:white;"></i></a>
                 </div>
 
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 18px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="background: var(--hyatt-white); padding: 30px; border-radius: 18px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div class="rule-header"><i data-lucide="pizza"></i> СТРИТ-ФУД</div>
-                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: white;">VЛАVАШЕ</h3>
-                        <p style="font-size: 0.9rem; color: white; margin-bottom: 15px;">Популярное место с качественной шавермой и закусками. Быстро, вкусно и всегда свежее.<br><br><b>📍 Плесецкая ул., 10 ст1 (8 мин. пешком)</b></p>
+                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.3rem;">VЛАVАШЕ</h3>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Популярное место с качественной шавермой и закусками. Быстро, вкусно и всегда свежее.<br><br><b>📍 Плесецкая ул., 10 ст1 (8 мин. пешком)</b></p>
                     </div>
                     <a href="https://yandex.ru/maps/?rtext=60.039164,30.211941~60.034730873971064,30.218142322538483&rtt=pd" target="_blank" class="maps-btn" style="margin-top: 10px;">МАРШРУТ <i data-lucide="navigation-2" style="width:14px; height:14px; color:white;"></i></a>
                 </div>
 
-                <div style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 18px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="background: var(--hyatt-white); padding: 30px; border-radius: 18px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div class="rule-header"><i data-lucide="shopping-basket"></i> МАГАЗИН</div>
-                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: white;">ВкусВилл</h3>
-                        <p style="font-size: 0.9rem; color: white; margin-bottom: 15px;">Большой выбор готовых блюд ресторанного качества, свежих продуктов и полезных десертов.<br><br><b>📍 Комендантский пр., 66 к1 (7 мин. пешком)</b></p>
+                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.3rem;">ВкусВилл</h3>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Большой выбор готовых блюд ресторанного качества, свежих продуктов и полезных десертов.<br><br><b>📍 Комендантский пр., 66 к1 (7 мин. пешком)</b></p>
                     </div>
                     <a href="https://yandex.ru/maps/?rtext=60.039164,30.211941~60.040216302043675,30.220009140011566&rtt=pd" target="_blank" class="maps-btn" style="margin-top: 10px;">МАРШРУТ <i data-lucide="navigation-2" style="width:14px; height:14px; color:white;"></i></a>
                 </div>
@@ -517,12 +516,10 @@
             const btn = event.target;
             const oldText = btn.innerText;
             btn.innerText = 'КОПИРОВАНО';
-            btn.style.background = '#ffffff';
-            btn.style.color = '#001b33';
+            btn.style.background = '#b2945e';
             setTimeout(() => { 
                 btn.innerText = oldText; 
                 btn.style.background = '';
-                btn.style.color = '';
             }, 1200);
         }
     }
