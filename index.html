@@ -306,4 +306,62 @@
 
         <div class="item full">
             <h2>📝 Правила проживания</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 15px;">
+                <div class="rule-card">
+                    <span class="rule-icon">🤫</span>
+                    <p style="color: var(--accent-teal); font-weight: 700; margin-bottom: 5px;">ТИШИНА</p>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">С 22:00 до 08:00. Нарушение ведет к выселению.</p>
+                </div>
+                <div class="rule-card">
+                    <span class="rule-icon">🚭</span>
+                    <p style="color: var(--accent-teal); font-weight: 700; margin-bottom: 5px;">КУРЕНИЕ</p>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">Строго запрещено в квартире и на балконе. Штраф — залог.</p>
+                </div>
+                <div class="rule-card">
+                    <span class="rule-icon">🐾</span>
+                    <p style="color: var(--accent-teal); font-weight: 700; margin-bottom: 5px;">ВАЖНО</p>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">Без животных. Пожалуйста, выносите мусор в баки во дворе.</p>
+                </div>
+                <div class="rule-card">
+                    <span class="rule-icon">🌐</span>
+                    <p style="color: var(--accent-teal); font-weight: 700; margin-bottom: 5px;">ИНТЕРНЕТ</p>
+                    <p style="font-size: 0.9rem; margin-bottom: 8px;">Сеть: <b>Арцеулка 5G</b></p>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #f5f1ed; padding: 12px; border-radius: 15px; border: 1px solid #e0d5cb;">
+                        <span id="wifi" style="font-weight: 800; color: var(--accent-wood); font-size: 1.1rem; font-family: monospace;">1Q194Aws</span>
+                        <button onclick="copy('wifi', event)" class="btn-copy" style="padding: 6px 12px; font-size: 0.65rem;">COPY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-contacts">
+            <p style="letter-spacing: 3px; color: var(--accent-wood); font-weight: 800; font-size: 0.8rem; margin-bottom: 20px;">CONTACT US</p>
+            <a href="tel:+79214070305">+7 (921) 407-03-05</a>
+            <a href="mailto:info@gorshkovrealtor.ru">info@gorshkovrealtor.ru</a>
+            <p style="margin-top: 20px; color: var(--text-dim);">г. Санкт-Петербург, Арцеуловская аллея, д. 19, корп. 1</p>
+        </div>
+        <div class="footer-copyright">© 2026 СВОИ ДНИ. EXCELLENCE IN EVERY DETAIL.</div>
+    </footer>
+</div>
+
+<script>
+    function copy(id, event) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text);
+        if (event) {
+            const btn = event.target;
+            const oldText = btn.innerText;
+            btn.innerText = 'COPIED';
+            btn.style.background = var(--text-main);
+            setTimeout(() => { 
+                btn.innerText = oldText; 
+                btn.style.background = var(--accent-teal);
+            }, 1200);
+        }
+    }
+</script>
+
+</body>
+</html>
