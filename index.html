@@ -6,6 +6,7 @@
     <title>Свой Дни | Отличный-отдых</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
         :root {
@@ -13,13 +14,12 @@
             --hyatt-gold: #b2945e;
             --hyatt-white: #ffffff;
             --hyatt-gray: #707070;
-            --bg-light: #f4f7f9; /* Светлый фон */
+            --bg-light: #f4f7f9;
             --border-color: rgba(0,0,0,0.05);
-            --card-radius: 20px; /* Округление */
+            --card-radius: 20px;
         }
 
         body {
-            /* Светлый градиент */
             background: linear-gradient(135deg, #eef2f5 0%, #f4f7f9 100%);
             background-attachment: fixed;
             font-family: 'Inter', -apple-system, sans-serif;
@@ -75,7 +75,7 @@
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             border-radius: var(--card-radius);
             border: 1px solid var(--border-color);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04); /* Легкая тень */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
         }
         .item:hover {
             transform: translateY(-5px);
@@ -96,6 +96,15 @@
             align-items: center;
             gap: 12px;
         }
+        
+        /* Стиль для новых иконок в заголовках */
+        h2 i, h2 svg {
+            color: var(--hyatt-gold);
+            width: 22px;
+            height: 22px;
+            stroke-width: 1.5px;
+        }
+
         h2::after {
             content: '';
             flex-grow: 1;
@@ -152,6 +161,7 @@
             margin-top: 25px; padding: 18px 30px; background: var(--hyatt-gold);
             color: white; text-decoration: none; font-weight: 600; border-radius: 12px;
             transition: 0.3s; text-transform: uppercase; font-size: 0.8rem;
+            gap: 10px;
         }
         .maps-btn:hover { background: var(--hyatt-navy); }
 
@@ -160,8 +170,12 @@
             margin-top: 60px;
         }
         .footer-contacts a { color: var(--hyatt-navy); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.5rem; }
-        .footer-contacts p { color: var(--hyatt-gold); font-size: 0.9rem; margin-top: 10px; }
+        .footer-contacts p { color: var(--hyatt-gold); font-size: 0.9rem; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .footer-copyright { font-size: 0.65rem; color: var(--hyatt-gray); letter-spacing: 3px; text-transform: uppercase; margin-top: 30px; }
+
+        /* Иконки в правилах */
+        .rule-header { display: flex; align-items: center; gap: 8px; color: var(--hyatt-gold); font-weight: 700; margin-bottom: 8px; font-size: 0.85rem; }
+        .rule-header svg { width: 16px; height: 16px; stroke-width: 2px; }
 
         @media (max-width: 850px) {
             .bento-grid { grid-template-columns: 1fr; }
@@ -184,7 +198,7 @@
     </div>
 
     <div class="item full" style="margin-bottom: 30px;">
-        <h2>✦ Прямое бронирование</h2>
+        <h2><i data-lucide="calendar-check"></i> Прямое бронирование</h2>
         <p style="margin-bottom: 25px; color: #444;">Забронируйте следующие даты проживания без комиссий площадок.</p>
         <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid var(--border-color); min-height: 100px;">
             <div id="hr-widget">
@@ -199,7 +213,7 @@
 
     <div class="bento-grid">
         <div class="item wide">
-            <h2>◈ Как добраться</h2>
+            <h2><i data-lucide="map-pin"></i> Как добраться</h2>
             <div class="media-wrapper"><img src="way.jpg" alt="Карта"></div>
             <div class="description-block">
                 <p style="margin-bottom: 15px; color: var(--hyatt-navy); font-weight: 600;">Наш адрес: Арцеуловская аллея, д. 19, корп. 1</p>
@@ -216,11 +230,11 @@
 Далее 7 минут пешком и Вы на месте.</p>
                 </div>
             </div>
-            <a href="https://yandex.ru/maps/?pt=30.211941%2C60.039164&z=17" target="_blank" class="maps-btn">Открыть в Картах 📍</a>
+            <a href="https://yandex.ru/maps/?pt=30.211941%2C60.039164&z=17" target="_blank" class="maps-btn">Открыть в Картах <i data-lucide="external-link" style="width:16px; height:16px; color:white;"></i></a>
         </div>
 
         <div class="item">
-            <h2>◎ Доступ</h2>
+            <h2><i data-lucide="key-round"></i> Доступ</h2>
             <div class="media-wrapper"><img src="intercom.jpg" alt="Домофон"></div>
             <div class="info-pill">
                 <div><small style="color:var(--hyatt-gray); font-weight: 700; letter-spacing: 1px;">ДОМОФОН</small><div class="code-val" id="c1">2631</div></div>
@@ -236,7 +250,7 @@
         </div>
 
         <div class="item wide">
-            <h2>🗝 Инструкция к замку</h2>
+            <h2><i data-lucide="door-open"></i> Инструкция к замку</h2>
             <div class="media-wrapper">
                 <iframe src="https://kinescope.io/rvrHaiMd39fBvqmdknZfVL" allowfullscreen></iframe>
             </div>
@@ -249,7 +263,7 @@
         </div>
 
         <div class="item">
-            <h2>🛡 Охрана</h2>
+            <h2><i data-lucide="shield-check"></i> Охрана</h2>
             <div class="media-wrapper"><img src="security.jpg" alt="Охрана"></div>
             <div class="description-block">
                 <p>Жилой комплекс находится под охраной.
@@ -259,7 +273,7 @@
         </div>
 
         <div class="item wide">
-            <h2>📺 Развлечения</h2>
+            <h2><i data-lucide="tv-2"></i> Развлечения</h2>
             <div class="media-wrapper"><img src="entertainment.jpg" alt="ТВ"></div>
             <div class="description-block">
                 <div class="route-step"><span>1</span><p><b>OTT Player:</b> Более 600 ТВ-каналов в высоком качестве.</p></div>
@@ -269,7 +283,7 @@
         </div>
 
         <div class="item">
-            <h2>♨ Теплый пол</h2>
+            <h2><i data-lucide="thermometer-snowflake"></i> Теплый пол</h2>
             <div class="media-wrapper"><img src="floor.jpg" alt="Пол"></div>
             <div class="description-block">
                 <p>Включение: зажмите кнопку «Режим» до появления света на экране. Пол прогреется за 10–15 минут.
@@ -278,22 +292,22 @@
         </div>
 
         <div class="item full">
-            <h2>📋 Правила проживания</h2>
+            <h2><i data-lucide="list-checks"></i> Правила проживания</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-top: 10px;">
-                <div class="description-block" style="border-top: 2px solid #eee; padding-top: 15px;">
-                    <p style="color: var(--hyatt-gold); font-weight: 700; margin-bottom: 8px;">🤫 ТИШИНА</p>
+                <div class="description-block" style="border-top: 1px solid #eee; padding-top: 15px;">
+                    <div class="rule-header"><i data-lucide="volume-x"></i> ТИШИНА</div>
                     <p style="font-size: 0.85rem;">С 22:00 до 08:00. Нарушение ведет к выселению.</p>
                 </div>
-                <div class="description-block" style="border-top: 2px solid #eee; padding-top: 15px;">
-                    <p style="color: var(--hyatt-gold); font-weight: 700; margin-bottom: 8px;">🚭 КУРЕНИЕ</p>
+                <div class="description-block" style="border-top: 1px solid #eee; padding-top: 15px;">
+                    <div class="rule-header"><i data-lucide="cigarette-off"></i> КУРЕНИЕ</div>
                     <p style="font-size: 0.85rem;">Строго запрещено в квартире и на балконе. Штраф — залог.</p>
                 </div>
-                <div class="description-block" style="border-top: 2px solid #eee; padding-top: 15px;">
-                    <p style="color: var(--hyatt-gold); font-weight: 700; margin-bottom: 8px;">🐾 ЖИВОТНЫЕ</p>
+                <div class="description-block" style="border-top: 1px solid #eee; padding-top: 15px;">
+                    <div class="rule-header"><i data-lucide="dog"></i> ЖИВОТНЫЕ</div>
                     <p style="font-size: 0.85rem;">Без животных. Пожалуйста, выносите мусор в баки во дворе.</p>
                 </div>
                 <div class="description-block" style="border-top: 2px solid var(--hyatt-navy); padding-top: 15px;">
-                    <p style="color: var(--hyatt-navy); font-weight: 700; margin-bottom: 8px;">📶 WI-FI</p>
+                    <div class="rule-header" style="color: var(--hyatt-navy);"><i data-lucide="wifi"></i> WI-FI</div>
                     <p style="font-size: 0.85rem; margin-bottom: 12px;">Сеть: <b>Арцеулка 5G</b></p>
                     <div style="display: flex; align-items: center; justify-content: space-between; background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid var(--border-color);">
                         <span id="wifi" style="color: var(--hyatt-navy); font-family: monospace; font-weight: 700;">1Q194Aws</span>
@@ -307,13 +321,16 @@
     <footer>
         <div class="footer-contacts">
             <a href="tel:+79214070305">+7 (921) 407-03-05</a>
-            <p>📍 г. Санкт-Петербург, Арцеуловская аллея, д. 19, корп. 1</p>
+            <p><i data-lucide="map-pin" style="width:14px; height:14px;"></i> г. Санкт-Петербург, Арцеуловская аллея, д. 19, корп. 1</p>
         </div>
         <div class="footer-copyright">© 2026 СВОИ ДНИ. EXCELLENCE IN EVERY DETAIL.</div>
     </footer>
 </div>
 
 <script>
+    // Инициализация иконок
+    lucide.createIcons();
+
     function copy(id, event) {
         const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text);
