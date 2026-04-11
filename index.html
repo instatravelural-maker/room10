@@ -219,11 +219,60 @@
         }
         .maps-btn:hover { background: var(--hyatt-navy); }
 
+        /* ИСПРАВЛЕННЫЙ ПОДВАЛ */
         footer { 
-            padding: 60px 20px; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); 
             margin-top: 60px;
+            padding-bottom: 40px;
         }
-        .footer-copyright { font-size: 0.65rem; color: var(--hyatt-gray); letter-spacing: 3px; text-transform: uppercase; margin-top: 30px; }
+        
+        .footer-card {
+            background: var(--hyatt-white);
+            border-radius: var(--card-radius);
+            border: 1px solid var(--border-color);
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+        }
+
+        .footer-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-contacts a:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--hyatt-navy);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer-contacts a:last-child {
+            color: var(--hyatt-gold);
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .footer-contacts a:last-child:hover {
+            border-bottom-color: var(--hyatt-gold);
+        }
+
+        .footer-copyright { 
+            font-size: 0.65rem; 
+            color: var(--hyatt-gray); 
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
         .rule-header { display: flex; align-items: center; gap: 8px; color: var(--hyatt-gold); font-weight: 700; margin-bottom: 8px; font-size: 0.85rem; }
         .rule-header svg { width: 16px; height: 16px; stroke-width: 2px; }
@@ -236,6 +285,7 @@
             .item { padding: 30px 20px; }
             .quick-actions { gap: 8px; }
             .action-btn { padding: 10px 14px; font-size: 0.65rem; }
+            .footer-contacts a:first-child { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -428,11 +478,13 @@
     </div>
 
     <footer>
-        <div class="footer-contacts">
-            <a href="tel:+79214070305">+7 (921) 407-03-05</a>
-            <a href="mailto:info@gorshkovrealtor.ru" style="font-size: 1.1rem; color: var(--hyatt-gold); font-family: 'Inter', sans-serif; font-weight: 400; text-transform: lowercase;">info@gorshkovrealtor.ru</a>
+        <div class="footer-card">
+            <div class="footer-contacts">
+                <a href="tel:+79214070305">+7 (921) 407-03-05</a>
+                <a href="mailto:info@gorshkovrealtor.ru">info@gorshkovrealtor.ru</a>
+            </div>
+            <div class="footer-copyright">© 2026 СВОИ ДНИ. ПРЕВОСХОДСТВО В КАЖДОЙ ДЕТАЛИ.</div>
         </div>
-        <div class="footer-copyright">© 2026 СВОИ ДНИ. ПРЕВОСХОДСТВО В КАЖДОЙ ДЕТАЛИ.</div>
     </footer>
 </div>
 
