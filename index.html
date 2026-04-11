@@ -10,6 +10,7 @@
     <style>
         :root {
             --hyatt-navy: #001b33;
+            --hyatt-dark: #000d1a;
             --hyatt-gold: #b2945e;
             --hyatt-white: #ffffff;
             --hyatt-gray: #707070;
@@ -18,7 +19,9 @@
         }
 
         body {
-            background: var(--hyatt-navy);
+            /* Обновленный градиентный фон для глубины */
+            background: radial-gradient(circle at top right, #00284d, var(--hyatt-navy), var(--hyatt-dark));
+            background-attachment: fixed;
             font-family: 'Inter', -apple-system, sans-serif;
             color: var(--hyatt-white);
             margin: 0;
@@ -28,10 +31,8 @@
 
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
 
-        /* Hero Style - Hyatt Aesthetic */
         .hero {
             height: 450px;
-            border-radius: 0; /* Строгий стиль Hyatt */
             margin-bottom: 40px;
             position: relative;
             overflow: hidden;
@@ -40,15 +41,16 @@
             align-items: flex-end;
             padding: 60px;
             border-bottom: 4px solid var(--hyatt-gold);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(0,27,51,0.8) 0%, transparent 100%);
+            background: linear-gradient(0deg, rgba(0,13,26,0.9) 0%, transparent 100%);
         }
         .hero-content { position: relative; z-index: 2; }
-        .logo-img { width: 80px; height: 80px; border-radius: 0; margin-bottom: 20px; background: white; padding: 5px; }
+        .logo-img { width: 80px; height: 80px; margin-bottom: 20px; background: white; padding: 5px; }
         .hero h1 { 
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem; 
@@ -65,19 +67,20 @@
             margin-bottom: 30px;
         }
 
-        /* Hyatt Card Style */
         .item {
             background: var(--hyatt-white);
             color: var(--hyatt-navy);
             padding: 40px;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
             border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            border-color: var(--hyatt-gold);
         }
 
         .wide { grid-column: span 2; }
@@ -87,8 +90,6 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.4rem; 
             color: var(--hyatt-navy); 
-            text-transform: none; 
-            letter-spacing: 0; 
             margin: 0 0 25px 0; 
             font-weight: 700;
             border-bottom: 1px solid var(--hyatt-gold);
@@ -104,6 +105,7 @@
             margin-top: 20px;
             background: var(--bg-light);
             position: relative;
+            border: 1px solid #eee;
         }
         .media-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .media-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
@@ -113,7 +115,7 @@
             padding: 0;
             flex-grow: 1;
         }
-        .description-block p { font-size: 0.95rem; color: #444; line-height: 1.7; white-space: pre-line; margin: 0; }
+        .description-block p { font-size: 0.95rem; color: #333; line-height: 1.7; white-space: pre-line; margin: 0; }
 
         .route-step { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
         .route-step span { 
@@ -145,14 +147,15 @@
             color: white; text-decoration: none; font-weight: 600; transition: 0.3s;
             text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;
         }
-        .maps-btn:hover { background: var(--hyatt-navy); }
+        .maps-btn:hover { background: var(--hyatt-navy); transform: scale(1.02); }
 
         footer { 
             padding: 80px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); 
-            margin-top: 80px; background: rgba(255,255,255,0.02);
+            margin-top: 80px; background: rgba(0, 0, 0, 0.2);
         }
         .footer-contacts { display: flex; flex-direction: column; align-items: center; gap: 15px; }
-        .footer-contacts a { color: var(--hyatt-white); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+        .footer-contacts a { color: var(--hyatt-white); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.5rem; transition: 0.3s; }
+        .footer-contacts a:hover { color: var(--hyatt-gold); }
         .footer-contacts p { color: var(--hyatt-gold); font-size: 0.9rem; letter-spacing: 1px; }
         .footer-copyright { font-size: 0.65rem; color: var(--hyatt-gray); letter-spacing: 4px; text-transform: uppercase; margin-top: 40px; }
 
@@ -161,7 +164,7 @@
             .wide, .full { grid-column: span 1; }
             .hero { height: 350px; padding: 30px; }
             .hero h1 { font-size: 2.2rem; }
-            .item { padding: 25px; }
+            .item { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -179,11 +182,13 @@
     <div class="item full" style="margin-bottom: 30px;">
         <h2>🗓 Прямое бронирование</h2>
         <p style="margin-bottom: 25px; color: #444;">Забронируйте следующие даты проживания без комиссий площадок.</p>
-        <div id="hr-widget"></div>
-    <script type="module" src="https://homereserve.ru/widget.js"></script>
-    <script type="module">
-        window.homereserve.initWidgetSearch({"token":"AeEVhV7jVU"})
-    </script>
+        
+        <div style="background: var(--bg-light); padding: 20px; border: 1px solid var(--border-color); min-height: 100px;">
+            <div id="hr-widget">
+                <script type="module" src="https://homereserve.ru/widget.js"></script>
+                <script type="module">
+                    window.homereserve.initWidgetSearch({"token":"AeEVhV7jVU"})
+                </script>
             </div>
         </div>
         <a href="https://homereserve.ru/AeEVhV7jVU" class="maps-btn" style="width: 100%; box-sizing: border-box;">Забронировать сейчас</a>
