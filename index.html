@@ -394,6 +394,42 @@
                 </div>
             </div>
         </div>
+
+        <div class="item full">
+            <h2><i data-lucide="utensils"></i> Где перекусить поблизости</h2>
+            <p style="margin-bottom: 25px; color: var(--hyatt-gray);">Рекомендации мест с высоким рейтингом в нашем доме и соседних зданиях.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                
+                <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="rule-header"><i data-lucide="coffee"></i> ЗАВТРАК И КОФЕ</div>
+                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.2rem;">PROHLADA</h3>
+                        <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Уютная кофейня с завтраками весь день, вкусными десертами и эстетичной подачей. <br><b>3 мин. пешком</b></p>
+                    </div>
+                    <a href="https://yandex.ru/maps/org/prohlada/48046890356" target="_blank" class="action-btn" style="color: var(--hyatt-navy); border-color: var(--hyatt-navy); text-align: center; justify-content: center;">МАРШРУТ</a>
+                </div>
+
+                <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="rule-header"><i data-lucide="pizza"></i> ОБЕД И УЖИН</div>
+                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.2rem;">VЛАVАШЕ</h3>
+                        <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Легендарная петербургская сеть стрит-фуда. Чисто, современно и очень сытно. <br><b>2 мин. пешком</b></p>
+                    </div>
+                    <a href="https://yandex.ru/maps/org/vlavashe/128148810793" target="_blank" class="action-btn" style="color: var(--hyatt-navy); border-color: var(--hyatt-navy); text-align: center; justify-content: center;">МАРШРУТ</a>
+                </div>
+
+                <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div class="rule-header"><i data-lucide="shopping-cart"></i> ПРОДУКТЫ</div>
+                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.2rem;">ВкусВилл</h3>
+                        <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Натуральные продукты и большой выбор готовой еды, которую можно просто разогреть. <br><b>4 мин. пешком</b></p>
+                    </div>
+                    <a href="https://yandex.ru/maps/org/vkusvill/180631379105" target="_blank" class="action-btn" style="color: var(--hyatt-navy); border-color: var(--hyatt-navy); text-align: center; justify-content: center;">МАРШРУТ</a>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -424,7 +460,6 @@
         }
     }
 
-    // Скрипт Погоды и Времени (Новое)
     function updateTime() {
         const now = new Date();
         const hours = String(now.getHours()).padStart(2, '0');
@@ -448,7 +483,7 @@
     setInterval(updateTime, 1000);
     updateTime();
     updateWeather();
-    setInterval(updateWeather, 600000); // Обновление каждые 10 минут
+    setInterval(updateWeather, 600000);
 </script>
 
 </body>
