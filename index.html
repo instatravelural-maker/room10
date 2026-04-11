@@ -254,10 +254,19 @@
             color: var(--hyatt-navy);
             font-size: 1rem;
             font-weight: 400;
-            margin-bottom: 5px;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .footer-contacts a:last-child {
+        .footer-address i, .footer-address svg {
+            color: var(--hyatt-gold);
+            width: 18px;
+            height: 18px;
+        }
+
+        .footer-contacts a:nth-child(2) {
             color: var(--hyatt-gold);
             text-decoration: none;
             font-size: 1.1rem;
@@ -266,7 +275,7 @@
             transition: 0.3s;
         }
 
-        .footer-contacts a:last-child:hover {
+        .footer-contacts a:nth-child(2):hover {
             border-bottom-color: var(--hyatt-gold);
         }
 
@@ -488,8 +497,10 @@
         <div class="footer-card">
             <div class="footer-contacts">
                 <a href="tel:+79214070305">+7 (921) 407-03-05</a>
-                <div class="footer-address">Арцеуловская аллея, д. 19, корп. 1</div>
                 <a href="mailto:info@gorshkovrealtor.ru">info@gorshkovrealtor.ru</a>
+                <div class="footer-address">
+                    <i data-lucide="map-pin"></i> Арцеуловская аллея, д. 19, корп. 1
+                </div>
             </div>
             <div class="footer-copyright">© 2026 СВОИ ДНИ. ПРЕВОСХОДСТВО В КАЖДОЙ ДЕТАЛИ.</div>
         </div>
