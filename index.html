@@ -49,15 +49,44 @@
             inset: 0;
             background: linear-gradient(0deg, rgba(0,27,51,0.7) 0%, transparent 100%);
         }
-        .hero-content { position: relative; z-index: 2; color: white; }
+        .hero-content { position: relative; z-index: 2; color: white; width: 100%; }
         .logo-img { width: 80px; height: 80px; border-radius: 12px; margin-bottom: 20px; background: white; padding: 5px; }
         .hero h1 { 
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem; 
-            margin: 0; 
+            margin: 0 0 20px 0; 
             font-weight: 400; 
             line-height: 1.1; 
         }
+
+        /* Кнопки в шапке */
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid var(--hyatt-gold);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+        .action-btn:hover {
+            background: var(--hyatt-gold);
+            color: white;
+        }
+        .action-btn svg { width: 16px; height: 16px; stroke-width: 2px; }
 
         .bento-grid {
             display: grid;
@@ -139,7 +168,6 @@
             font-size: 0.75rem; font-weight: 700; border-radius: 50%;
         }
 
-        /* Центрирование в блоке Доступ */
         .info-pill-centered {
             background: #f8fafc;
             padding: 25px;
@@ -185,9 +213,11 @@
         @media (max-width: 850px) {
             .bento-grid { grid-template-columns: 1fr; }
             .wide, .full { grid-column: span 1; }
-            .hero { height: 350px; padding: 30px; }
+            .hero { height: 400px; padding: 30px; }
             .hero h1 { font-size: 2.2rem; }
             .item { padding: 30px 20px; }
+            .quick-actions { gap: 8px; }
+            .action-btn { padding: 10px 14px; font-size: 0.65rem; }
         }
     </style>
 </head>
@@ -199,6 +229,18 @@
             <img src="logo.png" class="logo-img" alt="Logo">
             <p style="color: var(--hyatt-gold); font-weight: 600; margin-bottom: 10px; letter-spacing: 2px; font-size: 0.8rem;">СВОИ ДНИ • КОНСЬЕРЖ</p>
             <h1>Добро<br>пожаловать!</h1>
+            
+            <div class="quick-actions">
+                <a href="https://wa.me/79214070305" class="action-btn">
+                    <i data-lucide="message-circle"></i> WhatsApp
+                </a>
+                <a href="https://t.me/svoidni_admin" class="action-btn">
+                    <i data-lucide="send"></i> Telegram
+                </a>
+                <a href="tel:+79214070305" class="action-btn">
+                    <i data-lucide="phone"></i> Позвонить
+                </a>
+            </div>
         </div>
     </div>
 
