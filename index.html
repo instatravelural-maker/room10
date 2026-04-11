@@ -97,7 +97,6 @@
             gap: 12px;
         }
         
-        /* Стиль для новых иконок в заголовках */
         h2 i, h2 svg {
             color: var(--hyatt-gold);
             width: 22px;
@@ -140,14 +139,21 @@
             font-size: 0.75rem; font-weight: 700; border-radius: 50%;
         }
 
-        .info-pill {
+        /* Центрирование в блоке Доступ */
+        .info-pill-centered {
             background: #f8fafc;
-            padding: 20px;
-            display: flex; justify-content: space-between; align-items: center;
-            margin-top: 20px; border-radius: 15px;
+            padding: 25px;
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            margin-top: 20px; 
+            border-radius: 15px;
             border: 1px dashed var(--hyatt-gold);
+            text-align: center;
         }
-        .code-val { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--hyatt-navy); font-weight: 700; }
+
+        .code-val { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--hyatt-navy); font-weight: 700; line-height: 1; margin-top: 5px; }
         
         .btn-copy { 
             background: var(--hyatt-navy); color: white; border: none; padding: 10px 20px; 
@@ -169,11 +175,10 @@
             padding: 60px 20px; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); 
             margin-top: 60px;
         }
-        .footer-contacts a { color: var(--hyatt-navy); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+        .footer-contacts a { color: var(--hyatt-navy); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.5rem; display: block; margin-bottom: 5px; }
         .footer-contacts p { color: var(--hyatt-gold); font-size: 0.9rem; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .footer-copyright { font-size: 0.65rem; color: var(--hyatt-gray); letter-spacing: 3px; text-transform: uppercase; margin-top: 30px; }
 
-        /* Иконки в правилах */
         .rule-header { display: flex; align-items: center; gap: 8px; color: var(--hyatt-gold); font-weight: 700; margin-bottom: 8px; font-size: 0.85rem; }
         .rule-header svg { width: 16px; height: 16px; stroke-width: 2px; }
 
@@ -236,9 +241,9 @@
         <div class="item">
             <h2><i data-lucide="key-round"></i> Доступ</h2>
             <div class="media-wrapper"><img src="intercom.jpg" alt="Домофон"></div>
-            <div class="info-pill">
-                <div><small style="color:var(--hyatt-gray); font-weight: 700; letter-spacing: 1px;">ДОМОФОН</small><div class="code-val" id="c1">2631</div></div>
-                <button class="btn-copy" onclick="copy('c1', event)">ВЫЗОВ</button>
+            <div class="info-pill-centered">
+                <small style="color:var(--hyatt-gray); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-size: 0.65rem;">Домофон</small>
+                <div class="code-val">2631</div>
             </div>
             <div class="description-block">
                 <p>Вход в подъезд со стороны школы.
@@ -321,6 +326,7 @@
     <footer>
         <div class="footer-contacts">
             <a href="tel:+79214070305">+7 (921) 407-03-05</a>
+            <a href="mailto:svoidni@mail.ru" style="font-size: 1.1rem; color: var(--hyatt-gold); font-family: 'Inter', sans-serif; font-weight: 400; text-transform: lowercase;">svoidni@mail.ru</a>
             <p><i data-lucide="map-pin" style="width:14px; height:14px;"></i> г. Санкт-Петербург, Арцеуловская аллея, д. 19, корп. 1</p>
         </div>
         <div class="footer-copyright">© 2026 СВОИ ДНИ. EXCELLENCE IN EVERY DETAIL.</div>
@@ -328,7 +334,6 @@
 </div>
 
 <script>
-    // Инициализация иконок
     lucide.createIcons();
 
     function copy(id, event) {
