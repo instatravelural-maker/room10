@@ -51,7 +51,6 @@
         }
         .hero-content { position: relative; z-index: 2; color: white; width: 100%; }
 
-        /* Стили виджета погоды */
         .weather-widget {
             position: absolute;
             top: 0;
@@ -224,8 +223,6 @@
             padding: 60px 20px; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); 
             margin-top: 60px;
         }
-        .footer-contacts a { color: var(--hyatt-navy); text-decoration: none; font-family: 'Playfair Display', serif; font-size: 1.5rem; display: block; margin-bottom: 5px; }
-        .footer-contacts p { color: var(--hyatt-gold); font-size: 0.9rem; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .footer-copyright { font-size: 0.65rem; color: var(--hyatt-gray); letter-spacing: 3px; text-transform: uppercase; margin-top: 30px; }
 
         .rule-header { display: flex; align-items: center; gap: 8px; color: var(--hyatt-gold); font-weight: 700; margin-bottom: 8px; font-size: 0.85rem; }
@@ -239,8 +236,6 @@
             .item { padding: 30px 20px; }
             .quick-actions { gap: 8px; }
             .action-btn { padding: 10px 14px; font-size: 0.65rem; }
-            .weather-widget { padding: 10px 15px; gap: 12px; }
-            .weather-value { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -397,35 +392,35 @@
 
         <div class="item full">
             <h2><i data-lucide="utensils"></i> Где перекусить поблизости</h2>
-            <p style="margin-bottom: 25px; color: var(--hyatt-gray);">Рекомендации мест с высоким рейтингом в нашем доме и соседних зданиях.</p>
+            <p style="margin-bottom: 25px; color: var(--hyatt-gray);">Лучшие места с высоким рейтингом в шаговой доступности от вас.</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
                 
-                <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="background: var(--hyatt-white); padding: 30px; border-radius: 18px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div class="rule-header"><i data-lucide="coffee"></i> ЗАВТРАК И КОФЕ</div>
-                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.2rem;">PROHLADA</h3>
-                        <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Уютная кофейня с завтраками весь день, вкусными десертами и эстетичной подачей. <br><b>3 мин. пешком</b></p>
+                        <div class="rule-header"><i data-lucide="coffee"></i> КОФЕ И ДЕСЕРТЫ</div>
+                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.3rem;">Мама варит кофе</h3>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Стильная кофейня с отличным зерном и свежей выпечкой. Идеально для начала дня.<br><br><b>📍 Арцеуловская 21 (3 мин. пешком)</b></p>
                     </div>
-                    <a href="https://yandex.ru/maps/org/prohlada/48046890356" target="_blank" class="action-btn" style="color: var(--hyatt-navy); border-color: var(--hyatt-navy); text-align: center; justify-content: center;">МАРШРУТ</a>
+                    <a href="https://yandex.ru/maps/?rtext=60.039164,30.211941~60.039601,30.216335&rtt=pd" target="_blank" class="maps-btn" style="margin-top: 10px;">МАРШРУТ <i data-lucide="navigation-2" style="width:14px; height:14px; color:white;"></i></a>
                 </div>
 
-                <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="background: var(--hyatt-white); padding: 30px; border-radius: 18px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div class="rule-header"><i data-lucide="pizza"></i> ОБЕД И УЖИН</div>
-                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.2rem;">VЛАVАШЕ</h3>
-                        <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Легендарная петербургская сеть стрит-фуда. Чисто, современно и очень сытно. <br><b>2 мин. пешком</b></p>
+                        <div class="rule-header"><i data-lucide="pizza"></i> СТРИТ-ФУД</div>
+                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.3rem;">VЛАVАШЕ</h3>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Популярное место с качественной шавермой и закусками. Быстро, вкусно и всегда свежее.<br><br><b>📍 Арцеуловская 17 (2 мин. пешком)</b></p>
                     </div>
-                    <a href="https://yandex.ru/maps/org/vlavashe/128148810793" target="_blank" class="action-btn" style="color: var(--hyatt-navy); border-color: var(--hyatt-navy); text-align: center; justify-content: center;">МАРШРУТ</a>
+                    <a href="https://yandex.ru/maps/?rtext=60.039164,30.211941~60.037943,30.211603&rtt=pd" target="_blank" class="maps-btn" style="margin-top: 10px;">МАРШРУТ <i data-lucide="navigation-2" style="width:14px; height:14px; color:white;"></i></a>
                 </div>
 
-                <div style="background: #f8fafc; padding: 20px; border-radius: 15px; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between;">
+                <div style="background: var(--hyatt-white); padding: 30px; border-radius: 18px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <div class="rule-header"><i data-lucide="shopping-cart"></i> ПРОДУКТЫ</div>
-                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.2rem;">ВкусВилл</h3>
-                        <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Натуральные продукты и большой выбор готовой еды, которую можно просто разогреть. <br><b>4 мин. пешком</b></p>
+                        <div class="rule-header"><i data-lucide="shopping-basket"></i> КУЛИНАРИЯ</div>
+                        <h3 style="margin: 10px 0; font-family: 'Playfair Display', serif; font-size: 1.3rem;">ВкусВилл</h3>
+                        <p style="font-size: 0.9rem; color: #555; margin-bottom: 15px;">Большой выбор готовых блюд ресторанного качества, которые можно разогреть дома.<br><br><b>📍 Арцеуловская 13 (5 мин. пешком)</b></p>
                     </div>
-                    <a href="https://yandex.ru/maps/org/vkusvill/180631379105" target="_blank" class="action-btn" style="color: var(--hyatt-navy); border-color: var(--hyatt-navy); text-align: center; justify-content: center;">МАРШРУТ</a>
+                    <a href="https://yandex.ru/maps/?rtext=60.039164,30.211941~60.036660,30.210672&rtt=pd" target="_blank" class="maps-btn" style="margin-top: 10px;">МАРШРУТ <i data-lucide="navigation-2" style="width:14px; height:14px; color:white;"></i></a>
                 </div>
 
             </div>
@@ -436,7 +431,6 @@
         <div class="footer-contacts">
             <a href="tel:+79214070305">+7 (921) 407-03-05</a>
             <a href="mailto:info@gorshkovrealtor.ru" style="font-size: 1.1rem; color: var(--hyatt-gold); font-family: 'Inter', sans-serif; font-weight: 400; text-transform: lowercase;">info@gorshkovrealtor.ru</a>
-            <p><i data-lucide="map-pin" style="width:14px; height:14px;"></i> г. Санкт-Петербург, Арцеуловская аллея, д. 19, корп. 1</p>
         </div>
         <div class="footer-copyright">© 2026 СВОИ ДНИ. ПРЕВОСХОДСТВО В КАЖДОЙ ДЕТАЛИ.</div>
     </footer>
