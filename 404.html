@@ -4,55 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страница не найдена — Свои Дни</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="https://своидни.рф/img/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://своидни.рф/css/style.css"> 
+    <link rel="stylesheet" href="https://своидни.рф/css/index.css">
     <style>
-        .error-container {
-            height: 100vh;
+        .error-section {
+            padding: 100px 20px;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 20px;
+            justify-content: center;
+            min-height: 60vh;
         }
-        .error-code {
-            font-size: 8rem;
-            font-weight: 700;
+        .error-image {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .error-title {
+            font-size: 2.5rem;
             color: var(--navy);
-            line-height: 1;
-            margin-bottom: 20px;
-            opacity: 0.1;
+            margin-bottom: 15px;
         }
-        .error-content {
-            margin-top: -60px;
-        }
-        .btn-home {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 40px;
-            background: var(--navy);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
+        .error-text {
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 500px;
         }
     </style>
 </head>
 <body>
 
-    <div class="error-container">
-        <div class="error-code">404</div>
-        <div class="error-content">
-            <h1 style="color: var(--navy);">Упс! Страница потерялась</h1>
-            <p style="color: #666; max-width: 400px; margin: 20px auto;">
-                Похоже, адрес введен неверно или страница была перемещена. 
-                Но не переживайте, наша квартира в Санкт-Петербурге на месте!
-            </p>
-            <a href="https://своидни.рф" class="btn-home">Вернуться на главную</a>
+<header class="header">
+    <div class="container header-flex">
+        <a href="https://своидни.рф/" class="logo">
+            <img src="https://своидни.рф/img/logo.png" alt="Логотип" style="width: 45px; height: 45px; object-fit: contain;">
+            <span>Свои Дни</span>
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle">
+            <i data-lucide="menu"></i>
+        </button>
+
+        <nav class="nav" id="main-nav">
+            <a href="https://своидни.рф/">Главная</a>
+            <a href="https://своидни.рф/about/">О квартире</a>
+            <a href="https://своидни.рф/services/">Сервис</a>
+            <a href="https://своидни.рф/checkin/">Заселение</a>
+            <a href="https://своидни.рф/reviews/">Отзывы</a>
+            <a href="https://своидни.рф/contacts/">Контакты</a>
+        </nav>
+
+        <a href="https://своидни.рф/booking/" class="btn-dark header-action desktop-only-btn">Забронировать</a>
+    </div>
+</header>
+
+<main>
+    <section class="container error-section">
+        <img src="https://своидни.рф/img/error.webp" alt="Ошибка 404" class="error-image">
+        
+        <h1 class="error-title">Упс! Страница не найдена</h1>
+        <p class="error-text">
+            Похоже, эта страница уехала в отпуск. Но не волнуйтесь, наши апартаменты всё ещё на месте и ждут вас!
+        </p>
+        <a href="https://своидни.рф/" class="btn-dark" style="padding: 15px 40px;">Вернуться на главную</a>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-grid">
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <img src="https://своидни.рф/img/logo.png" alt="Логотип" style="width: 50px; height: 50px; object-fit: contain; vertical-align: middle; margin-right: 10px;">
+                Свои Дни
+            </div>
+            <p>Ваш уютный уголок в Санкт-Петербурге. Профессиональный сервис посуточной аренды квартир.</p>
+            
+            <div class="social-links">
+                <a href="https://t.me/GMSergeevich" target="_blank"><i data-lucide="send" size="20"></i></a>
+                <a href="https://wa.me/79214070305" target="_blank"><i class="fa-brands fa-whatsapp" style="font-size: 20px;"></i></a>
+                <a href="tel:+79214070305"><i data-lucide="phone" size="20"></i></a>
+            </div>
+        </div>
+
+        <div>
+            <h4>Контакты</h4>
+            <p><i data-lucide="phone" size="16"></i> <a href="tel:+79214070305">+7 921 407-03-05</a></p>
+            <p><i data-lucide="mail" size="16"></i> <a href="mailto:info@gorshkovrealtor.ru">info@gorshkovrealtor.ru</a></p>
+            <p><i data-lucide="map-pin" size="16"></i> Арцеуловская аллея, д. 19, корп. 1</p>
+        </div>
+
+        <div>
+            <h4>Навигация</h4>
+            <p><a href="https://своидни.рф/">Главная</a></p>
+            <p><a href="https://своидни.рф/about/">О квартире</a></p>
+            <p><a href="https://своидни.рф/checkin/">Заселение</a></p>
+            <p><a href="https://своидни.рф/contacts/">Контакты</a></p>
         </div>
     </div>
+    <div class="footer-bottom container">
+        <p>© 2026 Свои Дни. Все права защищены.</p>
+    </div>
+</footer>
 
-    <script>lucide.createIcons();</script>
+<script>lucide.createIcons();</script>
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+
+    menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        if (mainNav.classList.contains('active')) {
+            icon.setAttribute('data-lucide', 'x');
+        } else {
+            icon.setAttribute('data-lucide', 'menu');
+        }
+        lucide.createIcons();
+    });
+</script>
 </body>
 </html>
