@@ -11,32 +11,62 @@
     <link rel="stylesheet" href="https://своидни.рф/css/style.css"> 
     <link rel="stylesheet" href="https://своидни.рф/css/index.css">
     <style>
+        /* Главные правки для "единого" экрана без скролла */
         .error-section {
-            padding: 100px 20px;
-            text-align: center;
+            padding: 40px 20px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 60vh;
+            justify-content: space-between;
+            min-height: calc(100vh - 80px - 300px); /* Вычитаем высоту шапки и подвала */
+            gap: 40px;
         }
+
+        .error-content {
+            flex: 1;
+            text-align: left; /* Текст слева */
+        }
+
+        .error-image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
         .error-image {
-            max-width: 400px;
+            max-width: 450px;
             width: 100%;
             height: auto;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
+
         .error-title {
-            font-size: 2.5rem;
+            font-size: 3rem;
             color: var(--navy);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
+
         .error-text {
-            color: #666;
-            margin-bottom: 30px;
-            max-width: 500px;
+            color: #555;
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 992px) {
+            .error-section {
+                flex-direction: column-reverse; /* На мобилках картинка будет под текстом */
+                text-align: center;
+                padding: 60px 20px;
+            }
+            .error-content {
+                text-align: center;
+            }
+            .error-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -68,13 +98,17 @@
 
 <main>
     <section class="container error-section">
-        <img src="https://своидни.рф/img/error.webp" alt="Ошибка 404" class="error-image">
-        
-        <h1 class="error-title">Упс! Страница не найдена</h1>
-        <p class="error-text">
-            Похоже, эта страница уехала в отпуск. Но не волнуйтесь, наши апартаменты всё ещё на месте и ждут вас!
-        </p>
-        <a href="https://своидни.рф/" class="btn-dark" style="padding: 15px 40px;">Вернуться на главную</a>
+        <div class="error-content">
+            <h1 class="error-title">Упс! <br>Страница потерялась</h1>
+            <p class="error-text">
+                Похоже, эта ссылка ведет в никуда. Но не волнуйтесь, наши уютные апартаменты в Приморском районе всё ещё на месте и ждут вашего визита!
+            </p>
+            <a href="https://своидни.рф/" class="btn-dark" style="padding: 18px 45px; font-size: 1rem;">Вернуться на главную</a>
+        </div>
+
+        <div class="error-image-container">
+            <img src="https://своидни.рф/img/error.webp" alt="Ошибка 404" class="error-image">
+        </div>
     </section>
 </main>
 
