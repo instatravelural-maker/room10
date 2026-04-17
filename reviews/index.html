@@ -31,24 +31,25 @@
 <body class="reviews-page">
 
 <header class="header">
-    <div class="container"> 
-        <div class="header-flex"> 
-            <a href="../" class="logo">
-                <img src="../img/logo.webp" alt="Логотип" style="width: 45px; height: 45px;">
-                Свои Дни
-            </a> 
-            
-            <nav class="nav">
-                <a href="../">Главная</a>
-                <a href="../about/">О квартире</a>
-                <a href="../services/">Сервис</a>
-                <a href="../checkin/">Заселение</a>
-                <a href="../reviews/" class="active">Отзывы</a>
-                <a href="../contacts/">Контакты</a>
-            </nav>
-            
-            <a href="../booking/" class="btn-dark">Забронировать</a>
-        </div>
+    <div class="container header-flex"> <a href="../" class="logo">
+            <img src="../img/logo.webp" alt="Логотип" style="width: 45px; height: 45px;">
+            <span>Свои Дни</span>
+        </a> 
+        
+        <button class="menu-toggle" id="menu-toggle">
+            <i data-lucide="menu"></i>
+        </button>
+        
+        <nav class="nav" id="main-nav">
+            <a href="../">Главная</a>
+            <a href="../about/">О квартире</a>
+            <a href="../services/">Сервис</a>
+            <a href="../checkin/">Заселение</a>
+            <a href="../reviews/" class="active">Отзывы</a>
+            <a href="../contacts/">Контакты</a>
+        </nav>
+        
+        <a href="../booking/" class="btn-dark desktop-only-btn">Забронировать</a>
     </div>
 </header>
 
@@ -221,7 +222,7 @@
 <script>
     const menuToggle = document.getElementById('menu-toggle');
     const mainNav = document.getElementById('main-nav');
-    if (menuToggle) {
+    if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => {
             mainNav.classList.toggle('active');
             const icon = menuToggle.querySelector('i');
