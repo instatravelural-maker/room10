@@ -220,13 +220,14 @@
 /* --- БОКОВАЯ ПАНЕЛЬ (SIDEBAR) --- */
 .sidebar-booking {
     position: sticky;
-    top: 20px;
+    top: 100px;
     background: var(--white);
     padding: 25px;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border: 1px solid var(--border-color);
     margin-bottom: 30px;
+    z-index: 90;
 }
 .price { 
     font-size: 24px; 
@@ -272,9 +273,9 @@
     }
     .sidebar-booking {
         position: sticky;
-        top: 20px;
+        top: 100px;
         order: -1;
-        z-index: 100;
+        z-index: 90;
     }
 }
 
