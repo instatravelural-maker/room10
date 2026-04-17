@@ -313,14 +313,34 @@
         /* Отменяем "липкость" блока на мобильных */
         .sidebar-booking {
             position: static !important;
-            margin-top: 20px !important;
-            width: 100% !important;
             float: none !important;
+            
+            /* Исправляем ширину */
+            width: auto !important; /* Автоматически растянется до краев родителя */
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            margin-top: 30px !important;
+            
+            /* Гарантируем, что блок не вылезет за границы */
+            box-sizing: border-box !important;
+            
+            /* Если блок все равно кажется слишком широким, 
+               можно добавить небольшие отступы по бокам */
+            padding: 20px !important; 
         }
-        /* Убеждаемся, что сетка не заставляет блок сжиматься */
+
+        /* Убеждаемся, что родительский контейнер не имеет лишних отступов */
         .details-grid {
             display: flex !important;
             flex-direction: column !important;
+            width: 100% !important;
+            overflow: hidden; /* Обрезает все, что пытается вылезти */
+        }
+        
+        /* Дополнительно: чтобы кнопка внутри не была слишком огромной */
+        .btn-booking-full {
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
     }
 </style>
