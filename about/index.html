@@ -308,39 +308,37 @@
         });
     }
 </script>
-    <style>
+   <style>
     @media (max-width: 992px) {
-        /* Отменяем "липкость" блока на мобильных */
+        /* 1. Убираем "липкость" */
         .sidebar-booking {
             position: static !important;
             float: none !important;
             
-            /* Исправляем ширину */
-            width: auto !important; /* Автоматически растянется до краев родителя */
+            /* 2. Растягиваем на всю доступную ширину контейнера */
+            width: 100% !important; 
+            
+            /* 3. Обнуляем внешние отступы, чтобы не было смещения */
             margin-left: 0 !important;
             margin-right: 0 !important;
             margin-top: 30px !important;
             
-            /* Гарантируем, что блок не вылезет за границы */
+            /* 4. Важно: считаем ширину вместе с внутренними отступами */
             box-sizing: border-box !important;
             
-            /* Если блок все равно кажется слишком широким, 
-               можно добавить небольшие отступы по бокам */
-            padding: 20px !important; 
+            /* 5. Настройка теней и скруглений (чтобы как у других блоков) */
+            border: 1px solid #eee !important; /* Если у других есть рамка */
+            border-radius: 15px !important;    /* Типовое скругление для вашего сайта */
         }
 
-        /* Убеждаемся, что родительский контейнер не имеет лишних отступов */
+        /* Убираем ограничения сетки, которые могли его сжимать */
         .details-grid {
-            display: flex !important;
-            flex-direction: column !important;
+            display: block !important; /* Вместо flex используем блочную модель */
             width: 100% !important;
-            overflow: hidden; /* Обрезает все, что пытается вылезти */
         }
-        
-        /* Дополнительно: чтобы кнопка внутри не была слишком огромной */
-        .btn-booking-full {
+
+        .main-content {
             width: 100% !important;
-            box-sizing: border-box !important;
         }
     }
 </style>
