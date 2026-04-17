@@ -46,6 +46,19 @@
                 <a href="../checkin/">Заселение</a>
                 <a href="../reviews/">Отзывы</a>
                 <a href="../contacts/" class="active">Контакты</a>
+                <a href="booking/" 
+       onclick="ym(108598634,'track','click_book');" 
+       class="btn-dark mobile-only-nav-btn" 
+       style="margin-top: 20px; text-align: center; background: #244471; color: #fff; padding: 12px; border-radius: 8px; display: none;">
+       Забронировать
+    </a>
+    
+    <script>
+        // Маленький скрипт, который покажет кнопку только на мобилках
+        if (window.innerWidth <= 768) {
+            document.querySelector('.mobile-only-nav-btn').style.display = 'block';
+        }
+    </script>
             </nav>
             
             <a href="booking/" onclick="ym(108598634,'track','click_book');" class="btn-dark header-action desktop-only-btn">Забронировать</a>
